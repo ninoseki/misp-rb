@@ -1,0 +1,173 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://<API_ENDPOINT>:5000/events/add
+    body:
+      encoding: UTF-8
+      string: '{"Event":{"info":"test"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - "<API_KEY>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 18 Sep 2019 05:55:54 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Set-Cookie:
+      - MISP-5d8089d3-9f14-4c53-9d2c-72f066e1c200=c4vtunr6d03st8676sfv47f568; expires=Wed,
+        18-Sep-2019 06:55:54 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d8089d3-9f14-4c53-9d2c-72f066e1c200=c4vtunr6d03st8676sfv47f568; expires=Wed,
+        18-Sep-2019 06:55:54 GMT; Max-Age=3600; path=/; HttpOnly
+      Content-Length:
+      - '1093'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "Event": {
+                "id": "10",
+                "orgc_id": "1",
+                "org_id": "1",
+                "date": "2019-09-18",
+                "threat_level_id": "4",
+                "info": "test",
+                "published": false,
+                "uuid": "5d81c6ea-1f48-46ef-95a5-74210a00020f",
+                "attribute_count": "0",
+                "analysis": "0",
+                "timestamp": "1568786154",
+                "distribution": "1",
+                "proposal_email_lock": false,
+                "locked": false,
+                "publish_timestamp": "0",
+                "sharing_group_id": "0",
+                "disable_correlation": false,
+                "extends_uuid": "",
+                "event_creator_email": "admin@admin.test",
+                "Org": {
+                    "id": "1",
+                    "name": "ORGNAME",
+                    "uuid": "5d8089d3-2e0c-4341-b03a-72f866e1c200",
+                    "local": true
+                },
+                "Orgc": {
+                    "id": "1",
+                    "name": "ORGNAME",
+                    "uuid": "5d8089d3-2e0c-4341-b03a-72f866e1c200",
+                    "local": true
+                },
+                "Attribute": [],
+                "ShadowAttribute": [],
+                "RelatedEvent": [],
+                "Galaxy": [],
+                "Object": []
+            }
+        }
+    http_version: 
+  recorded_at: Wed, 18 Sep 2019 05:55:54 GMT
+- request:
+    method: post
+    uri: http://<API_ENDPOINT>:5000/attributes/add/10
+    body:
+      encoding: UTF-8
+      string: '{"Attribute":{"value":"8.8.8.8","type":"ip-dst"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - "<API_KEY>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 18 Sep 2019 05:55:54 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Set-Cookie:
+      - MISP-5d8089d3-9f14-4c53-9d2c-72f066e1c200=nhuqve69la9o026frvakomt75u; expires=Wed,
+        18-Sep-2019 06:55:54 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d8089d3-9f14-4c53-9d2c-72f066e1c200=nhuqve69la9o026frvakomt75u; expires=Wed,
+        18-Sep-2019 06:55:54 GMT; Max-Age=3600; path=/; HttpOnly
+      Content-Length:
+      - '564'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "Attribute": {
+                "id": "5",
+                "event_id": "10",
+                "object_id": "0",
+                "object_relation": null,
+                "category": "Network activity",
+                "type": "ip-dst",
+                "value1": "8.8.8.8",
+                "value2": "",
+                "to_ids": true,
+                "uuid": "5d81c6ea-87d4-47a0-995c-72f30a00020f",
+                "timestamp": "1568786154",
+                "distribution": "5",
+                "sharing_group_id": "0",
+                "comment": "",
+                "deleted": false,
+                "disable_correlation": false,
+                "value": "8.8.8.8"
+            },
+            "AttributeTag": []
+        }
+    http_version: 
+  recorded_at: Wed, 18 Sep 2019 05:55:54 GMT
+- request:
+    method: post
+    uri: http://<API_ENDPOINT>:5000/attributes/delete/5
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - "<API_KEY>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 18 Sep 2019 05:55:54 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Set-Cookie:
+      - MISP-5d8089d3-9f14-4c53-9d2c-72f066e1c200=778ufgj8v6lcihh65eekmeboqq; expires=Wed,
+        18-Sep-2019 06:55:54 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d8089d3-9f14-4c53-9d2c-72f066e1c200=778ufgj8v6lcihh65eekmeboqq; expires=Wed,
+        18-Sep-2019 06:55:54 GMT; Max-Age=3600; path=/; HttpOnly
+      Content-Length:
+      - '32'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"message":"Attribute deleted."}'
+    http_version: 
+  recorded_at: Wed, 18 Sep 2019 05:55:54 GMT
+recorded_with: VCR 5.0.0
