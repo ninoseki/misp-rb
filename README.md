@@ -1,5 +1,6 @@
 # misp-rb
 
+[![Gem Version](https://badge.fury.io/rb/misp.svg)](https://badge.fury.io/rb/misp)
 [![Build Status](https://travis-ci.com/ninoseki/misp-rb.svg?branch=master)](https://travis-ci.com/ninoseki/misp-rb)
 [![Coverage Status](https://coveralls.io/repos/github/ninoseki/misp-rb/badge.svg?branch=master)](https://coveralls.io/github/ninoseki/misp-rb?branch=master)
 [![CodeFactor](https://www.codefactor.io/repository/github/ninoseki/misp-rb/badge)](https://www.codefactor.io/repository/github/ninoseki/misp-rb)
