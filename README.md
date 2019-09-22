@@ -20,8 +20,8 @@ gem install misp
 
 By default, it tries to load configurations from environmental variables:
 
-- MISP API endpoint from ENV["MISP_API_ENDPOINT"]
-- MISP API key from ENV["MISP_API_KEY"]
+- `MISP_API_ENDPOINT`: MISP API endpoint (e.g. https://misppriv.circl.lu)
+- `MISP_API_KEY`: MISP API key
 
 Also, you can configure them manually.
 
@@ -60,7 +60,7 @@ event.update
 event = MISP::Event.get(17)
 event.add_attribute(value: "8.8.8.8", type: "ip-dst")
 # or
-attribute = MISP::Attribute(value: "1.1.1.1", type: "ip-dst")
+attribute = MISP::Attribute.new(value: "1.1.1.1", type: "ip-dst")
 event.add_attribute attribute
 event.update
 ```
