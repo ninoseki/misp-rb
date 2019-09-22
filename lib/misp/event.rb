@@ -65,7 +65,7 @@ module MISP
     end
 
     def to_h
-      compact({
+      compact(
         id: id,
         orgc_id: orgc_id,
         org_id: org_id,
@@ -92,7 +92,7 @@ module MISP
         RelatedEvent: related_events.map(&:to_h),
         Galaxy: galaxies.map(&:to_h),
         Tag: tags.map(&:to_h)
-      })
+      )
     end
 
     def get(id)
