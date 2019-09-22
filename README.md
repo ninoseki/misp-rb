@@ -22,11 +22,11 @@ gem install misp
 require "misp"
 
 # In default, it tries to load configurations from environmental variables:
-# - API endpoint(URL) from ENV["MISP_API_ENDPOINT"]
-# - API key via from ENV["MISP_API_KEY"]
+# - MISP API endpoint(URL) from ENV["MISP_API_ENDPOINT"]
+# - MISP API key from ENV["MISP_API_KEY"]
 # You can configure them manually
 MISP.configure do |config|
-  config.api_endpoint = "MISP_URL(e.g. https://misppriv.circl.lu)"
+  config.api_endpoint = "MISP_URL (e.g. https://misppriv.circl.lu)"
   config.api_key = "MISP_API_KEY"
 end
 ```
@@ -93,6 +93,16 @@ event = MISP::Event.new(
     { name: "my event-level tag" }
   ]
 )
+event.create
+# or
+event = MISP::Event.new(info: "my event")
+
+attribute = MISP::Attribute.new(value: "8.8.8.8", type: "ip-dst")
+attribute.tags << MISP::Tag.new(name: "my attribute-level tag")
+
+event.attributes << attribute
+event.tags << MISP::Tag.new(name: "my event-level tag")
+
 event.create
 ```
 
