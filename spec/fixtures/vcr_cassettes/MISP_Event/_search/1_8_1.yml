@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<API_ENDPOINT>/events/restSearch"
+    body:
+      encoding: UTF-8
+      string: '{"returnFormat":"json","limit":"100","page":"0","Event":{"info":"teast"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - "<API_KEY>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Sep 2019 00:11:17 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Set-Cookie:
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=hn3m2knk6l4u8trhr57gtm4mhk; expires=Sun,
+        22-Sep-2019 01:11:17 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=hn3m2knk6l4u8trhr57gtm4mhk; expires=Sun,
+        22-Sep-2019 01:11:17 GMT; Max-Age=3600; path=/; HttpOnly
+      X-Result-Count:
+      - '6'
+      X-Export-Module-Used:
+      - json
+      X-Response-Format:
+      - json
+      Content-Disposition:
+      - attachment; filename="misp.event.list.json"
+      Content-Length:
+      - '4511'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"response": [{"Event":{"id":"2","orgc_id":"1","org_id":"1","date":"2019-09-20","threat_level_id":"4","info":"teast","published":false,"uuid":"5d84df4d-f3c8-467a-bee4-19d00a00020f","attribute_count":"0","analysis":"0","timestamp":"1568989005","distribution":"1","proposal_email_lock":false,"locked":false,"publish_timestamp":"0","sharing_group_id":"0","disable_correlation":false,"extends_uuid":"","event_creator_email":"admin@admin.test","Org":{"id":"1","name":"ORGNAME","uuid":"5d84de75-ddd0-4b00-865a-19b521b86aea","local":true},"Orgc":{"id":"1","name":"ORGNAME","uuid":"5d84de75-ddd0-4b00-865a-19b521b86aea","local":true},"Attribute":[],"ShadowAttribute":[],"RelatedEvent":[],"Galaxy":[],"Object":[]}},{"Event":{"id":"4","orgc_id":"1","org_id":"1","date":"2019-09-20","threat_level_id":"4","info":"teast","published":false,"uuid":"5d84df4d-eaec-447c-a326-19b00a00020f","attribute_count":"0","analysis":"0","timestamp":"1568989005","distribution":"1","proposal_email_lock":false,"locked":false,"publish_timestamp":"0","sharing_group_id":"0","disable_correlation":false,"extends_uuid":"","event_creator_email":"admin@admin.test","Org":{"id":"1","name":"ORGNAME","uuid":"5d84de75-ddd0-4b00-865a-19b521b86aea","local":true},"Orgc":{"id":"1","name":"ORGNAME","uuid":"5d84de75-ddd0-4b00-865a-19b521b86aea","local":true},"Attribute":[],"ShadowAttribute":[],"RelatedEvent":[],"Galaxy":[],"Object":[]}},{"Event":{"id":"5","orgc_id":"1","org_id":"1","date":"2019-09-20","threat_level_id":"4","info":"teast","published":false,"uuid":"5d84df4e-6d1c-4d60-b6dd-19cd0a00020f","attribute_count":"0","analysis":"0","timestamp":"1568989006","distribution":"1","proposal_email_lock":false,"locked":false,"publish_timestamp":"0","sharing_group_id":"0","disable_correlation":false,"extends_uuid":"","event_creator_email":"admin@admin.test","Org":{"id":"1","name":"ORGNAME","uuid":"5d84de75-ddd0-4b00-865a-19b521b86aea","local":true},"Orgc":{"id":"1","name":"ORGNAME","uuid":"5d84de75-ddd0-4b00-865a-19b521b86aea","local":true},"Attribute":[],"ShadowAttribute":[],"RelatedEvent":[],"Galaxy":[],"Object":[]}},{"Event":{"id":"7","orgc_id":"1","org_id":"1","date":"2019-09-20","threat_level_id":"4","info":"teast","published":false,"uuid":"5d84e098-961c-4807-a2f1-19d00a00020f","attribute_count":"0","analysis":"0","timestamp":"1568989336","distribution":"1","proposal_email_lock":false,"locked":false,"publish_timestamp":"0","sharing_group_id":"0","disable_correlation":false,"extends_uuid":"","event_creator_email":"admin@admin.test","Org":{"id":"1","name":"ORGNAME","uuid":"5d84de75-ddd0-4b00-865a-19b521b86aea","local":true},"Orgc":{"id":"1","name":"ORGNAME","uuid":"5d84de75-ddd0-4b00-865a-19b521b86aea","local":true},"Attribute":[],"ShadowAttribute":[],"RelatedEvent":[],"Galaxy":[],"Object":[]}},{"Event":{"id":"8","orgc_id":"1","org_id":"1","date":"2019-09-21","threat_level_id":"4","info":"test","published":false,"uuid":"5d86b8fa-333c-4829-83dd-1c310a00020f","attribute_count":"0","analysis":"0","timestamp":"1569110266","distribution":"1","proposal_email_lock":false,"locked":false,"publish_timestamp":"0","sharing_group_id":"0","disable_correlation":false,"extends_uuid":"","event_creator_email":"admin@admin.test","Org":{"id":"1","name":"ORGNAME","uuid":"5d84de75-ddd0-4b00-865a-19b521b86aea","local":true},"Orgc":{"id":"1","name":"ORGNAME","uuid":"5d84de75-ddd0-4b00-865a-19b521b86aea","local":true},"Attribute":[],"ShadowAttribute":[],"RelatedEvent":[],"Galaxy":[],"Object":[]}},{"Event":{"id":"9","orgc_id":"1","org_id":"1","date":"2019-09-21","threat_level_id":"4","info":"test","published":false,"uuid":"5d86b950-5210-47e4-92df-1c2e0a00020f","attribute_count":"1","analysis":"0","timestamp":"1569110352","distribution":"1","proposal_email_lock":false,"locked":false,"publish_timestamp":"0","sharing_group_id":"0","disable_correlation":false,"extends_uuid":"","event_creator_email":"admin@admin.test","Org":{"id":"1","name":"ORGNAME","uuid":"5d84de75-ddd0-4b00-865a-19b521b86aea","local":true},"Orgc":{"id":"1","name":"ORGNAME","uuid":"5d84de75-ddd0-4b00-865a-19b521b86aea","local":true},"Attribute":[{"id":"1","type":"ip-dst","category":"Network
+        activity","to_ids":true,"uuid":"5d86b950-77d8-4b29-a40f-1c300a00020f","event_id":"9","distribution":"5","timestamp":"1569110352","comment":"","sharing_group_id":"0","deleted":false,"disable_correlation":false,"object_id":"0","object_relation":null,"value":"8.8.8.8","Galaxy":[],"ShadowAttribute":[]}],"ShadowAttribute":[],"RelatedEvent":[],"Galaxy":[],"Object":[]}}]}
+
+        '
+    http_version: 
+  recorded_at: Sun, 22 Sep 2019 00:29:10 GMT
+recorded_with: VCR 5.0.0

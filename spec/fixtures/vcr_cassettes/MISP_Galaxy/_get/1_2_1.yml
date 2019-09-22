@@ -1,0 +1,2060 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: "<API_ENDPOINT>/galaxies/view/1"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - "<API_KEY>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 21 Sep 2019 23:32:22 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Set-Cookie:
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=j3qvtv0ivco9p3v08nvac59l33; expires=Sun,
+        22-Sep-2019 00:32:22 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=j3qvtv0ivco9p3v08nvac59l33; expires=Sun,
+        22-Sep-2019 00:32:22 GMT; Max-Age=3600; path=/; HttpOnly
+      Content-Length:
+      - '82375'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "Galaxy": {
+                "id": "1",
+                "uuid": "fbfa0470-1707-11e8-be22-eb46b373fdd3",
+                "name": "Enterprise Attack - Tool",
+                "type": "mitre-enterprise-attack-tool",
+                "description": "Name of ATT&CK software",
+                "version": "5",
+                "icon": "gavel",
+                "namespace": "deprecated"
+            },
+            "GalaxyCluster": [
+                {
+                    "id": "1",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Winexe - S0191",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Winexe - S0191\"",
+                    "description": "is a lightweight, open source tool similar to PsExec designed to allow system administrators to execute commands on remote servers. (Citation: Winexe Github Sept 2013)  is unique in that it is a GNU\/Linux based client. (Citation: \u00dcberwachung APT28 Forfiles June 2015)\n\nAliases: Winexe",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "96fd6cc4-a693-4118-83ec-619e5352d07d",
+                    "GalaxyElement": [
+                        {
+                            "id": "1",
+                            "galaxy_cluster_id": "1",
+                            "key": "external_id",
+                            "value": "S0191"
+                        },
+                        {
+                            "id": "2",
+                            "galaxy_cluster_id": "1",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0191"
+                        },
+                        {
+                            "id": "3",
+                            "galaxy_cluster_id": "1",
+                            "key": "refs",
+                            "value": "https:\/\/github.com\/skalkoto\/winexe\/"
+                        },
+                        {
+                            "id": "4",
+                            "galaxy_cluster_id": "1",
+                            "key": "refs",
+                            "value": "https:\/\/netzpolitik.org\/2015\/digital-attack-on-german-parliament-investigative-report-on-the-hack-of-the-left-party-infrastructure-in-bundestag\/"
+                        },
+                        {
+                            "id": "5",
+                            "galaxy_cluster_id": "1",
+                            "key": "synonyms",
+                            "value": "Winexe"
+                        }
+                    ]
+                },
+                {
+                    "id": "2",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "at - S0110",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"at - S0110\"",
+                    "description": "at is used to schedule tasks on a system to run at a specified date or time. (Citation: TechNet At)\n\nAliases: at, at.exe",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "0c8465c0-d0b4-4670-992e-4eee8d7ff952",
+                    "GalaxyElement": [
+                        {
+                            "id": "6",
+                            "galaxy_cluster_id": "2",
+                            "key": "external_id",
+                            "value": "S0110"
+                        },
+                        {
+                            "id": "7",
+                            "galaxy_cluster_id": "2",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0110"
+                        },
+                        {
+                            "id": "8",
+                            "galaxy_cluster_id": "2",
+                            "key": "refs",
+                            "value": "https:\/\/technet.microsoft.com\/en-us\/library\/bb490866.aspx"
+                        },
+                        {
+                            "id": "9",
+                            "galaxy_cluster_id": "2",
+                            "key": "synonyms",
+                            "value": "at"
+                        },
+                        {
+                            "id": "10",
+                            "galaxy_cluster_id": "2",
+                            "key": "synonyms",
+                            "value": "at.exe"
+                        }
+                    ]
+                },
+                {
+                    "id": "3",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "route - S0103",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"route - S0103\"",
+                    "description": "route can be used to find or change information within the local system IP routing table. (Citation: TechNet Route)\n\nAliases: route, route.exe",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "c11ac61d-50f4-444f-85d8-6f006067f0de",
+                    "GalaxyElement": [
+                        {
+                            "id": "11",
+                            "galaxy_cluster_id": "3",
+                            "key": "external_id",
+                            "value": "S0103"
+                        },
+                        {
+                            "id": "12",
+                            "galaxy_cluster_id": "3",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0103"
+                        },
+                        {
+                            "id": "13",
+                            "galaxy_cluster_id": "3",
+                            "key": "refs",
+                            "value": "https:\/\/technet.microsoft.com\/en-us\/library\/bb490991.aspx"
+                        },
+                        {
+                            "id": "14",
+                            "galaxy_cluster_id": "3",
+                            "key": "synonyms",
+                            "value": "route"
+                        },
+                        {
+                            "id": "15",
+                            "galaxy_cluster_id": "3",
+                            "key": "synonyms",
+                            "value": "route.exe"
+                        }
+                    ]
+                },
+                {
+                    "id": "4",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Tasklist - S0057",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Tasklist - S0057\"",
+                    "description": "The Tasklist utility displays a list of applications and services with their Process IDs (PID) for all tasks running on either a local or a remote computer. It is packaged with Windows operating systems and can be executed from the command-line interface. (Citation: Microsoft Tasklist)\n\nAliases: Tasklist",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "2e45723a-31da-4a7e-aaa6-e01998a6788f",
+                    "GalaxyElement": [
+                        {
+                            "id": "16",
+                            "galaxy_cluster_id": "4",
+                            "key": "external_id",
+                            "value": "S0057"
+                        },
+                        {
+                            "id": "17",
+                            "galaxy_cluster_id": "4",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0057"
+                        },
+                        {
+                            "id": "18",
+                            "galaxy_cluster_id": "4",
+                            "key": "refs",
+                            "value": "https:\/\/technet.microsoft.com\/en-us\/library\/bb491010.aspx"
+                        },
+                        {
+                            "id": "19",
+                            "galaxy_cluster_id": "4",
+                            "key": "synonyms",
+                            "value": "Tasklist"
+                        }
+                    ]
+                },
+                {
+                    "id": "5",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Windows Credential Editor - S0005",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Windows Credential Editor - S0005\"",
+                    "description": "Windows Credential Editor is a password dumping tool. (Citation: Amplia WCE)\n\nAliases: Windows Credential Editor, WCE",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "242f3da3-4425-4d11-8f5c-b842886da966",
+                    "GalaxyElement": [
+                        {
+                            "id": "20",
+                            "galaxy_cluster_id": "5",
+                            "key": "external_id",
+                            "value": "S0005"
+                        },
+                        {
+                            "id": "21",
+                            "galaxy_cluster_id": "5",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0005"
+                        },
+                        {
+                            "id": "22",
+                            "galaxy_cluster_id": "5",
+                            "key": "refs",
+                            "value": "http:\/\/www.ampliasecurity.com\/research\/wcefaq.html"
+                        },
+                        {
+                            "id": "23",
+                            "galaxy_cluster_id": "5",
+                            "key": "synonyms",
+                            "value": "Windows Credential Editor"
+                        },
+                        {
+                            "id": "24",
+                            "galaxy_cluster_id": "5",
+                            "key": "synonyms",
+                            "value": "WCE"
+                        }
+                    ]
+                },
+                {
+                    "id": "6",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Responder - S0174",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Responder - S0174\"",
+                    "description": "Responder is an open source tool used for LLMNR, NBT-NS and MDNS poisoning, with built-in HTTP\/SMB\/MSSQL\/FTP\/LDAP rogue authentication server supporting NTLMv1\/NTLMv2\/LMv2, Extended Security NTLMSSP and Basic HTTP authentication. (Citation: GitHub Responder)\n\nAliases: Responder",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "a1dd2dbd-1550-44bf-abcc-1a4c52e97719",
+                    "GalaxyElement": [
+                        {
+                            "id": "25",
+                            "galaxy_cluster_id": "6",
+                            "key": "external_id",
+                            "value": "S0174"
+                        },
+                        {
+                            "id": "26",
+                            "galaxy_cluster_id": "6",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0174"
+                        },
+                        {
+                            "id": "27",
+                            "galaxy_cluster_id": "6",
+                            "key": "refs",
+                            "value": "https:\/\/github.com\/SpiderLabs\/Responder"
+                        },
+                        {
+                            "id": "28",
+                            "galaxy_cluster_id": "6",
+                            "key": "synonyms",
+                            "value": "Responder"
+                        }
+                    ]
+                },
+                {
+                    "id": "7",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "schtasks - S0111",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"schtasks - S0111\"",
+                    "description": "schtasks is used to schedule execution of programs or scripts on a Windows system to run at a specific date and time. (Citation: TechNet Schtasks)\n\nAliases: schtasks, schtasks.exe",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "c9703cd3-141c-43a0-a926-380082be5d04",
+                    "GalaxyElement": [
+                        {
+                            "id": "29",
+                            "galaxy_cluster_id": "7",
+                            "key": "external_id",
+                            "value": "S0111"
+                        },
+                        {
+                            "id": "30",
+                            "galaxy_cluster_id": "7",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0111"
+                        },
+                        {
+                            "id": "31",
+                            "galaxy_cluster_id": "7",
+                            "key": "refs",
+                            "value": "https:\/\/technet.microsoft.com\/en-us\/library\/bb490996.aspx"
+                        },
+                        {
+                            "id": "32",
+                            "galaxy_cluster_id": "7",
+                            "key": "synonyms",
+                            "value": "schtasks"
+                        },
+                        {
+                            "id": "33",
+                            "galaxy_cluster_id": "7",
+                            "key": "synonyms",
+                            "value": "schtasks.exe"
+                        }
+                    ]
+                },
+                {
+                    "id": "8",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "UACMe - S0116",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"UACMe - S0116\"",
+                    "description": "UACMe is an open source assessment tool that contains many methods for bypassing Windows User Account Control on multiple versions of the operating system. (Citation: Github UACMe)\n\nAliases: UACMe",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "102c3898-85e0-43ee-ae28-62a0a3ed9507",
+                    "GalaxyElement": [
+                        {
+                            "id": "34",
+                            "galaxy_cluster_id": "8",
+                            "key": "external_id",
+                            "value": "S0116"
+                        },
+                        {
+                            "id": "35",
+                            "galaxy_cluster_id": "8",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0116"
+                        },
+                        {
+                            "id": "36",
+                            "galaxy_cluster_id": "8",
+                            "key": "refs",
+                            "value": "https:\/\/github.com\/hfiref0x\/UACME"
+                        },
+                        {
+                            "id": "37",
+                            "galaxy_cluster_id": "8",
+                            "key": "synonyms",
+                            "value": "UACMe"
+                        }
+                    ]
+                },
+                {
+                    "id": "9",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "ifconfig - S0101",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"ifconfig - S0101\"",
+                    "description": "ifconfig is a Unix-based utility used to gather information about and interact with the TCP\/IP settings on a system. (Citation: Wikipedia Ifconfig)\n\nAliases: ifconfig",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "362dc67f-4e85-4562-9dac-1b6b7f3ec4b5",
+                    "GalaxyElement": [
+                        {
+                            "id": "38",
+                            "galaxy_cluster_id": "9",
+                            "key": "external_id",
+                            "value": "S0101"
+                        },
+                        {
+                            "id": "39",
+                            "galaxy_cluster_id": "9",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0101"
+                        },
+                        {
+                            "id": "40",
+                            "galaxy_cluster_id": "9",
+                            "key": "refs",
+                            "value": "https:\/\/en.wikipedia.org\/wiki\/Ifconfig"
+                        },
+                        {
+                            "id": "41",
+                            "galaxy_cluster_id": "9",
+                            "key": "synonyms",
+                            "value": "ifconfig"
+                        }
+                    ]
+                },
+                {
+                    "id": "10",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "BITSAdmin - S0190",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"BITSAdmin - S0190\"",
+                    "description": "is a command line tool used to create and manage BITS Jobs. (Citation: Microsoft BITSAdmin)\n\nAliases: BITSAdmin",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "64764dc6-a032-495f-8250-1e4c06bdc163",
+                    "GalaxyElement": [
+                        {
+                            "id": "42",
+                            "galaxy_cluster_id": "10",
+                            "key": "external_id",
+                            "value": "S0190"
+                        },
+                        {
+                            "id": "43",
+                            "galaxy_cluster_id": "10",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0190"
+                        },
+                        {
+                            "id": "44",
+                            "galaxy_cluster_id": "10",
+                            "key": "refs",
+                            "value": "https:\/\/msdn.microsoft.com\/library\/aa362813.aspx"
+                        },
+                        {
+                            "id": "45",
+                            "galaxy_cluster_id": "10",
+                            "key": "synonyms",
+                            "value": "BITSAdmin"
+                        }
+                    ]
+                },
+                {
+                    "id": "11",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Mimikatz - S0002",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Mimikatz - S0002\"",
+                    "description": "Mimikatz is a credential dumper capable of obtaining plaintext Windows account logins and passwords, along with many other features that make it useful for testing the security of networks. (Citation: Deply Mimikatz) (Citation: Adsecurity Mimikatz Guide)\n\nAliases: Mimikatz\n\nContributors: Vincent Le Toux",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "afc079f3-c0ea-4096-b75d-3f05338b7f60",
+                    "GalaxyElement": [
+                        {
+                            "id": "46",
+                            "galaxy_cluster_id": "11",
+                            "key": "external_id",
+                            "value": "S0002"
+                        },
+                        {
+                            "id": "47",
+                            "galaxy_cluster_id": "11",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0002"
+                        },
+                        {
+                            "id": "48",
+                            "galaxy_cluster_id": "11",
+                            "key": "refs",
+                            "value": "https:\/\/github.com\/gentilkiwi\/mimikatz"
+                        },
+                        {
+                            "id": "49",
+                            "galaxy_cluster_id": "11",
+                            "key": "refs",
+                            "value": "https:\/\/adsecurity.org\/?page%20id=1821"
+                        },
+                        {
+                            "id": "50",
+                            "galaxy_cluster_id": "11",
+                            "key": "synonyms",
+                            "value": "Mimikatz"
+                        }
+                    ]
+                },
+                {
+                    "id": "12",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "xCmd - S0123",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"xCmd - S0123\"",
+                    "description": " (Citation: xCmd) is an open source tool that is similar to PsExec and allows the user to execute applications on remote systems. (Citation: xCmd)\n\nAliases:  (Citation: xCmd)",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "4fa49fc0-9162-4bdb-a37e-7aa3dcb6d38b",
+                    "GalaxyElement": [
+                        {
+                            "id": "51",
+                            "galaxy_cluster_id": "12",
+                            "key": "external_id",
+                            "value": "S0123"
+                        },
+                        {
+                            "id": "52",
+                            "galaxy_cluster_id": "12",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0123"
+                        },
+                        {
+                            "id": "53",
+                            "galaxy_cluster_id": "12",
+                            "key": "refs",
+                            "value": "https:\/\/ashwinrayaprolu.wordpress.com\/2011\/04\/12\/xcmd-an-alternative-to-psexec\/"
+                        },
+                        {
+                            "id": "54",
+                            "galaxy_cluster_id": "12",
+                            "key": "synonyms",
+                            "value": "xCmd"
+                        }
+                    ]
+                },
+                {
+                    "id": "13",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "MimiPenguin - S0179",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"MimiPenguin - S0179\"",
+                    "description": "MimiPenguin is a credential dumper, similar to Mimikatz, designed specifically for Linux platforms. (Citation: MimiPenguin GitHub May 2017)\n\nAliases: MimiPenguin\n\nContributors: Vincent Le Toux",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "5a33468d-844d-4b1f-98c9-0e786c556b27",
+                    "GalaxyElement": [
+                        {
+                            "id": "55",
+                            "galaxy_cluster_id": "13",
+                            "key": "external_id",
+                            "value": "S0179"
+                        },
+                        {
+                            "id": "56",
+                            "galaxy_cluster_id": "13",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0179"
+                        },
+                        {
+                            "id": "57",
+                            "galaxy_cluster_id": "13",
+                            "key": "refs",
+                            "value": "https:\/\/github.com\/huntergregal\/mimipenguin"
+                        },
+                        {
+                            "id": "58",
+                            "galaxy_cluster_id": "13",
+                            "key": "synonyms",
+                            "value": "MimiPenguin"
+                        }
+                    ]
+                },
+                {
+                    "id": "14",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "SDelete - S0195",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"SDelete - S0195\"",
+                    "description": "is an application that securely deletes data in a way that makes it unrecoverable. It is part of the Microsoft Sysinternals suite of tools. (Citation: Microsoft SDelete July 2016)\n\nAliases: SDelete",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "d8d19e33-94fd-4aa3-b94a-08ee801a2153",
+                    "GalaxyElement": [
+                        {
+                            "id": "59",
+                            "galaxy_cluster_id": "14",
+                            "key": "external_id",
+                            "value": "S0195"
+                        },
+                        {
+                            "id": "60",
+                            "galaxy_cluster_id": "14",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0195"
+                        },
+                        {
+                            "id": "61",
+                            "galaxy_cluster_id": "14",
+                            "key": "refs",
+                            "value": "https:\/\/docs.microsoft.com\/en-us\/sysinternals\/downloads\/sdelete"
+                        },
+                        {
+                            "id": "62",
+                            "galaxy_cluster_id": "14",
+                            "key": "synonyms",
+                            "value": "SDelete"
+                        }
+                    ]
+                },
+                {
+                    "id": "15",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Systeminfo - S0096",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Systeminfo - S0096\"",
+                    "description": "Systeminfo is a Windows utility that can be used to gather detailed information about a computer. (Citation: TechNet Systeminfo)\n\nAliases: Systeminfo, systeminfo.exe",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "7fcbc4e8-1989-441f-9ac5-e7b6ff5806f1",
+                    "GalaxyElement": [
+                        {
+                            "id": "63",
+                            "galaxy_cluster_id": "15",
+                            "key": "external_id",
+                            "value": "S0096"
+                        },
+                        {
+                            "id": "64",
+                            "galaxy_cluster_id": "15",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0096"
+                        },
+                        {
+                            "id": "65",
+                            "galaxy_cluster_id": "15",
+                            "key": "refs",
+                            "value": "https:\/\/technet.microsoft.com\/en-us\/library\/bb491007.aspx"
+                        },
+                        {
+                            "id": "66",
+                            "galaxy_cluster_id": "15",
+                            "key": "synonyms",
+                            "value": "Systeminfo"
+                        },
+                        {
+                            "id": "67",
+                            "galaxy_cluster_id": "15",
+                            "key": "synonyms",
+                            "value": "systeminfo.exe"
+                        }
+                    ]
+                },
+                {
+                    "id": "16",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "netsh - S0108",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"netsh - S0108\"",
+                    "description": "netsh is a scripting utility used to interact with networking components on local or remote systems. (Citation: TechNet Netsh)\n\nAliases: netsh, netsh.exe",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "5a63f900-5e7e-4928-a746-dd4558e1df71",
+                    "GalaxyElement": [
+                        {
+                            "id": "68",
+                            "galaxy_cluster_id": "16",
+                            "key": "external_id",
+                            "value": "S0108"
+                        },
+                        {
+                            "id": "69",
+                            "galaxy_cluster_id": "16",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0108"
+                        },
+                        {
+                            "id": "70",
+                            "galaxy_cluster_id": "16",
+                            "key": "refs",
+                            "value": "https:\/\/technet.microsoft.com\/library\/bb490939.aspx"
+                        },
+                        {
+                            "id": "71",
+                            "galaxy_cluster_id": "16",
+                            "key": "synonyms",
+                            "value": "netsh"
+                        },
+                        {
+                            "id": "72",
+                            "galaxy_cluster_id": "16",
+                            "key": "synonyms",
+                            "value": "netsh.exe"
+                        }
+                    ]
+                },
+                {
+                    "id": "17",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "dsquery - S0105",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"dsquery - S0105\"",
+                    "description": "dsquery is a command-line utility that can be used to query Active Directory for information from a system within a domain. (Citation: TechNet Dsquery) It is typically installed only on Windows Server versions but can be installed on non-server variants through the Microsoft-provided Remote Server Administration Tools bundle.\n\nAliases: dsquery, dsquery.exe",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "38952eac-cb1b-4a71-bad2-ee8223a1c8fe",
+                    "GalaxyElement": [
+                        {
+                            "id": "73",
+                            "galaxy_cluster_id": "17",
+                            "key": "external_id",
+                            "value": "S0105"
+                        },
+                        {
+                            "id": "74",
+                            "galaxy_cluster_id": "17",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0105"
+                        },
+                        {
+                            "id": "75",
+                            "galaxy_cluster_id": "17",
+                            "key": "refs",
+                            "value": "https:\/\/technet.microsoft.com\/en-us\/library\/cc732952.aspx"
+                        },
+                        {
+                            "id": "76",
+                            "galaxy_cluster_id": "17",
+                            "key": "synonyms",
+                            "value": "dsquery"
+                        },
+                        {
+                            "id": "77",
+                            "galaxy_cluster_id": "17",
+                            "key": "synonyms",
+                            "value": "dsquery.exe"
+                        }
+                    ]
+                },
+                {
+                    "id": "18",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "gsecdump - S0008",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"gsecdump - S0008\"",
+                    "description": "gsecdump is a publicly-available credential dumper used to obtain password hashes and LSA secrets from Windows operating systems. (Citation: TrueSec Gsecdump)\n\nAliases: gsecdump",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "b07c2c47-fefb-4d7c-a69e-6a3296171f54",
+                    "GalaxyElement": [
+                        {
+                            "id": "78",
+                            "galaxy_cluster_id": "18",
+                            "key": "external_id",
+                            "value": "S0008"
+                        },
+                        {
+                            "id": "79",
+                            "galaxy_cluster_id": "18",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0008"
+                        },
+                        {
+                            "id": "80",
+                            "galaxy_cluster_id": "18",
+                            "key": "refs",
+                            "value": "https:\/\/www.truesec.se\/sakerhet\/verktyg\/saakerhet\/gsecdump%20v2.0b5"
+                        },
+                        {
+                            "id": "81",
+                            "galaxy_cluster_id": "18",
+                            "key": "synonyms",
+                            "value": "gsecdump"
+                        }
+                    ]
+                },
+                {
+                    "id": "19",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Ping - S0097",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Ping - S0097\"",
+                    "description": "Ping is an operating system utility commonly used to troubleshoot and verify network connections. (Citation: TechNet Ping)\n\nAliases: Ping, ping.exe",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "b77b563c-34bb-4fb8-86a3-3694338f7b47",
+                    "GalaxyElement": [
+                        {
+                            "id": "82",
+                            "galaxy_cluster_id": "19",
+                            "key": "external_id",
+                            "value": "S0097"
+                        },
+                        {
+                            "id": "83",
+                            "galaxy_cluster_id": "19",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0097"
+                        },
+                        {
+                            "id": "84",
+                            "galaxy_cluster_id": "19",
+                            "key": "refs",
+                            "value": "https:\/\/technet.microsoft.com\/en-us\/library\/bb490968.aspx"
+                        },
+                        {
+                            "id": "85",
+                            "galaxy_cluster_id": "19",
+                            "key": "synonyms",
+                            "value": "Ping"
+                        },
+                        {
+                            "id": "86",
+                            "galaxy_cluster_id": "19",
+                            "key": "synonyms",
+                            "value": "ping.exe"
+                        }
+                    ]
+                },
+                {
+                    "id": "20",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Fgdump - S0120",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Fgdump - S0120\"",
+                    "description": "Fgdump is a Windows password hash dumper. (Citation: Mandiant APT1)\n\nAliases: Fgdump",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "4f45dfeb-fe51-4df0-8db3-edf7dd0513fe",
+                    "GalaxyElement": [
+                        {
+                            "id": "87",
+                            "galaxy_cluster_id": "20",
+                            "key": "external_id",
+                            "value": "S0120"
+                        },
+                        {
+                            "id": "88",
+                            "galaxy_cluster_id": "20",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0120"
+                        },
+                        {
+                            "id": "89",
+                            "galaxy_cluster_id": "20",
+                            "key": "refs",
+                            "value": "https:\/\/www.fireeye.com\/content\/dam\/fireeye-www\/services\/pdfs\/mandiant-apt1-report.pdf"
+                        },
+                        {
+                            "id": "90",
+                            "galaxy_cluster_id": "20",
+                            "key": "synonyms",
+                            "value": "Fgdump"
+                        }
+                    ]
+                },
+                {
+                    "id": "21",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Lslsass - S0121",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Lslsass - S0121\"",
+                    "description": "Lslsass is a publicly-available tool that can dump active logon session password hashes from the lsass process. (Citation: Mandiant APT1)\n\nAliases: Lslsass",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "2fab555f-7664-4623-b4e0-1675ae38190b",
+                    "GalaxyElement": [
+                        {
+                            "id": "91",
+                            "galaxy_cluster_id": "21",
+                            "key": "external_id",
+                            "value": "S0121"
+                        },
+                        {
+                            "id": "92",
+                            "galaxy_cluster_id": "21",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0121"
+                        },
+                        {
+                            "id": "93",
+                            "galaxy_cluster_id": "21",
+                            "key": "refs",
+                            "value": "https:\/\/www.fireeye.com\/content\/dam\/fireeye-www\/services\/pdfs\/mandiant-apt1-report.pdf"
+                        },
+                        {
+                            "id": "94",
+                            "galaxy_cluster_id": "21",
+                            "key": "synonyms",
+                            "value": "Lslsass"
+                        }
+                    ]
+                },
+                {
+                    "id": "22",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Pass-The-Hash Toolkit - S0122",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Pass-The-Hash Toolkit - S0122\"",
+                    "description": "Pass-The-Hash Toolkit is a toolkit that allows an adversary to \"pass\" a password hash (without knowing the original password) to log in to systems. (Citation: Mandiant APT1)\n\nAliases: Pass-The-Hash Toolkit",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "a52edc76-328d-4596-85e7-d56ef5a9eb69",
+                    "GalaxyElement": [
+                        {
+                            "id": "95",
+                            "galaxy_cluster_id": "22",
+                            "key": "external_id",
+                            "value": "S0122"
+                        },
+                        {
+                            "id": "96",
+                            "galaxy_cluster_id": "22",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0122"
+                        },
+                        {
+                            "id": "97",
+                            "galaxy_cluster_id": "22",
+                            "key": "refs",
+                            "value": "https:\/\/www.fireeye.com\/content\/dam\/fireeye-www\/services\/pdfs\/mandiant-apt1-report.pdf"
+                        },
+                        {
+                            "id": "98",
+                            "galaxy_cluster_id": "22",
+                            "key": "synonyms",
+                            "value": "Pass-The-Hash Toolkit"
+                        }
+                    ]
+                },
+                {
+                    "id": "23",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "FTP - S0095",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"FTP - S0095\"",
+                    "description": "FTP is a utility commonly available with operating systems to transfer information over the File Transfer Protocol (FTP). Adversaries can use it to transfer other tools onto a system or to exfiltrate data. (Citation: Wikipedia FTP)\n\nAliases: FTP, ftp.exe",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "cf23bf4a-e003-4116-bbae-1ea6c558d565",
+                    "GalaxyElement": [
+                        {
+                            "id": "99",
+                            "galaxy_cluster_id": "23",
+                            "key": "external_id",
+                            "value": "S0095"
+                        },
+                        {
+                            "id": "100",
+                            "galaxy_cluster_id": "23",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0095"
+                        },
+                        {
+                            "id": "101",
+                            "galaxy_cluster_id": "23",
+                            "key": "refs",
+                            "value": "https:\/\/en.wikipedia.org\/wiki\/File%20Transfer%20Protocol"
+                        },
+                        {
+                            "id": "102",
+                            "galaxy_cluster_id": "23",
+                            "key": "synonyms",
+                            "value": "FTP"
+                        },
+                        {
+                            "id": "103",
+                            "galaxy_cluster_id": "23",
+                            "key": "synonyms",
+                            "value": "ftp.exe"
+                        }
+                    ]
+                },
+                {
+                    "id": "24",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "ipconfig - S0100",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"ipconfig - S0100\"",
+                    "description": "ipconfig is a Windows utility that can be used to find information about a system's TCP\/IP, DNS, DHCP, and adapter configuration. (Citation: TechNet Ipconfig)\n\nAliases: ipconfig, ipconfig.exe",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "294e2560-bd48-44b2-9da2-833b5588ad11",
+                    "GalaxyElement": [
+                        {
+                            "id": "104",
+                            "galaxy_cluster_id": "24",
+                            "key": "external_id",
+                            "value": "S0100"
+                        },
+                        {
+                            "id": "105",
+                            "galaxy_cluster_id": "24",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0100"
+                        },
+                        {
+                            "id": "106",
+                            "galaxy_cluster_id": "24",
+                            "key": "refs",
+                            "value": "https:\/\/technet.microsoft.com\/en-us\/library\/bb490921.aspx"
+                        },
+                        {
+                            "id": "107",
+                            "galaxy_cluster_id": "24",
+                            "key": "synonyms",
+                            "value": "ipconfig"
+                        },
+                        {
+                            "id": "108",
+                            "galaxy_cluster_id": "24",
+                            "key": "synonyms",
+                            "value": "ipconfig.exe"
+                        }
+                    ]
+                },
+                {
+                    "id": "25",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "nbtstat - S0102",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"nbtstat - S0102\"",
+                    "description": "nbtstat is a utility used to troubleshoot NetBIOS name resolution. (Citation: TechNet Nbtstat)\n\nAliases: nbtstat, nbtstat.exe",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "b35068ec-107a-4266-bda8-eb7036267aea",
+                    "GalaxyElement": [
+                        {
+                            "id": "109",
+                            "galaxy_cluster_id": "25",
+                            "key": "external_id",
+                            "value": "S0102"
+                        },
+                        {
+                            "id": "110",
+                            "galaxy_cluster_id": "25",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0102"
+                        },
+                        {
+                            "id": "111",
+                            "galaxy_cluster_id": "25",
+                            "key": "refs",
+                            "value": "https:\/\/technet.microsoft.com\/en-us\/library\/cc940106.aspx"
+                        },
+                        {
+                            "id": "112",
+                            "galaxy_cluster_id": "25",
+                            "key": "synonyms",
+                            "value": "nbtstat"
+                        },
+                        {
+                            "id": "113",
+                            "galaxy_cluster_id": "25",
+                            "key": "synonyms",
+                            "value": "nbtstat.exe"
+                        }
+                    ]
+                },
+                {
+                    "id": "26",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "HTRAN - S0040",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"HTRAN - S0040\"",
+                    "description": "HTRAN is a tool that proxies connections through intermediate hops and aids users in disguising their true geographical location. It can be used by adversaries to hide their location when interacting with the victim networks.  (Citation: Operation Quantum Entanglement)\n\nAliases: HTRAN, HUC Packet Transmit Tool",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "d5e96a35-7b0b-4c6a-9533-d63ecbda563e",
+                    "GalaxyElement": [
+                        {
+                            "id": "114",
+                            "galaxy_cluster_id": "26",
+                            "key": "external_id",
+                            "value": "S0040"
+                        },
+                        {
+                            "id": "115",
+                            "galaxy_cluster_id": "26",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0040"
+                        },
+                        {
+                            "id": "116",
+                            "galaxy_cluster_id": "26",
+                            "key": "refs",
+                            "value": "https:\/\/www.fireeye.com\/content\/dam\/fireeye-www\/global\/en\/current-threats\/pdfs\/wp-operation-quantum-entanglement.pdf"
+                        },
+                        {
+                            "id": "117",
+                            "galaxy_cluster_id": "26",
+                            "key": "synonyms",
+                            "value": "HTRAN"
+                        },
+                        {
+                            "id": "118",
+                            "galaxy_cluster_id": "26",
+                            "key": "synonyms",
+                            "value": "HUC Packet Transmit Tool"
+                        }
+                    ]
+                },
+                {
+                    "id": "27",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Tor - S0183",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Tor - S0183\"",
+                    "description": "Tor is a software suite and network that provides increased anonymity on the Internet. It creates a multi-hop proxy network and utilizes multilayer encryption to protect both the message and routing information. Tor utilizes \"Onion Routing,\" in which messages are encrypted with multiple layers of encryption; at each step in the proxy network, the topmost layer is decrypted and the contents forwarded on to the next node until it reaches its destination. (Citation: Dingledine Tor The Second-Generation Onion Router)\n\nAliases: Tor",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "ed7d0cb1-87a6-43b4-9f46-ef1bc56d6c68",
+                    "GalaxyElement": [
+                        {
+                            "id": "119",
+                            "galaxy_cluster_id": "27",
+                            "key": "external_id",
+                            "value": "S0183"
+                        },
+                        {
+                            "id": "120",
+                            "galaxy_cluster_id": "27",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0183"
+                        },
+                        {
+                            "id": "121",
+                            "galaxy_cluster_id": "27",
+                            "key": "refs",
+                            "value": "http:\/\/www.dtic.mil\/dtic\/tr\/fulltext\/u2\/a465464.pdf"
+                        },
+                        {
+                            "id": "122",
+                            "galaxy_cluster_id": "27",
+                            "key": "synonyms",
+                            "value": "Tor"
+                        }
+                    ]
+                },
+                {
+                    "id": "28",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "netstat - S0104",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"netstat - S0104\"",
+                    "description": "netstat is an operating system utility that displays active TCP connections, listening ports, and network statistics. (Citation: TechNet Netstat)\n\nAliases: netstat, netstat.exe",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "4664b683-f578-434f-919b-1c1aad2a1111",
+                    "GalaxyElement": [
+                        {
+                            "id": "123",
+                            "galaxy_cluster_id": "28",
+                            "key": "external_id",
+                            "value": "S0104"
+                        },
+                        {
+                            "id": "124",
+                            "galaxy_cluster_id": "28",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0104"
+                        },
+                        {
+                            "id": "125",
+                            "galaxy_cluster_id": "28",
+                            "key": "refs",
+                            "value": "https:\/\/technet.microsoft.com\/en-us\/library\/bb490947.aspx"
+                        },
+                        {
+                            "id": "126",
+                            "galaxy_cluster_id": "28",
+                            "key": "synonyms",
+                            "value": "netstat"
+                        },
+                        {
+                            "id": "127",
+                            "galaxy_cluster_id": "28",
+                            "key": "synonyms",
+                            "value": "netstat.exe"
+                        }
+                    ]
+                },
+                {
+                    "id": "29",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "pwdump - S0006",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"pwdump - S0006\"",
+                    "description": "pwdump is a credential dumper. (Citation: Wikipedia pwdump)\n\nAliases: pwdump",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "9de2308e-7bed-43a3-8e58-f194b3586700",
+                    "GalaxyElement": [
+                        {
+                            "id": "128",
+                            "galaxy_cluster_id": "29",
+                            "key": "external_id",
+                            "value": "S0006"
+                        },
+                        {
+                            "id": "129",
+                            "galaxy_cluster_id": "29",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0006"
+                        },
+                        {
+                            "id": "130",
+                            "galaxy_cluster_id": "29",
+                            "key": "refs",
+                            "value": "https:\/\/en.wikipedia.org\/wiki\/Pwdump"
+                        },
+                        {
+                            "id": "131",
+                            "galaxy_cluster_id": "29",
+                            "key": "synonyms",
+                            "value": "pwdump"
+                        }
+                    ]
+                },
+                {
+                    "id": "30",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Cachedump - S0119",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Cachedump - S0119\"",
+                    "description": "Cachedump is a publicly-available tool that program extracts cached password hashes from a system\u2019s registry. (Citation: Mandiant APT1)\n\nAliases: Cachedump",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "c9cd7ec9-40b7-49db-80be-1399eddd9c52",
+                    "GalaxyElement": [
+                        {
+                            "id": "132",
+                            "galaxy_cluster_id": "30",
+                            "key": "external_id",
+                            "value": "S0119"
+                        },
+                        {
+                            "id": "133",
+                            "galaxy_cluster_id": "30",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0119"
+                        },
+                        {
+                            "id": "134",
+                            "galaxy_cluster_id": "30",
+                            "key": "refs",
+                            "value": "https:\/\/www.fireeye.com\/content\/dam\/fireeye-www\/services\/pdfs\/mandiant-apt1-report.pdf"
+                        },
+                        {
+                            "id": "135",
+                            "galaxy_cluster_id": "30",
+                            "key": "synonyms",
+                            "value": "Cachedump"
+                        }
+                    ]
+                },
+                {
+                    "id": "31",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Forfiles - S0193",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Forfiles - S0193\"",
+                    "description": "Forfiles is a Windows utility commonly used in batch jobs to execute commands on one or more selected files or directories (ex: list all directories in a drive, read the first line of all files created yesterday, etc.). Forfiles can be executed from either the command line, Run window, or batch files\/scripts.  (Citation: Microsoft Forfiles Aug 2016)\n\nAliases: Forfiles\n\nContributors: Matthew Demaske, Adaptforward",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "90ec2b22-7061-4469-b539-0989ec4f96c2",
+                    "GalaxyElement": [
+                        {
+                            "id": "136",
+                            "galaxy_cluster_id": "31",
+                            "key": "external_id",
+                            "value": "S0193"
+                        },
+                        {
+                            "id": "137",
+                            "galaxy_cluster_id": "31",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0193"
+                        },
+                        {
+                            "id": "138",
+                            "galaxy_cluster_id": "31",
+                            "key": "refs",
+                            "value": "https:\/\/docs.microsoft.com\/previous-versions\/windows\/it-pro\/windows-server-2012-R2-and-2012\/cc753551(v=ws.11)"
+                        },
+                        {
+                            "id": "139",
+                            "galaxy_cluster_id": "31",
+                            "key": "synonyms",
+                            "value": "Forfiles"
+                        }
+                    ]
+                },
+                {
+                    "id": "32",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Net - S0039",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Net - S0039\"",
+                    "description": "The Net utility is a component of the Windows operating system. It is used in command-line operations for control of users, groups, services, and network connections. (Citation: Microsoft Net Utility)\n\nNet has a great deal of functionality, (Citation: Savill 1999) much of which is useful for an adversary, such as gathering system and network information for Discovery, moving laterally through Windows admin shares using <code>net use<\/code> commands, and interacting with services.\n\nAliases: Net, net.exe",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "03342581-f790-4f03-ba41-e82e67392e23",
+                    "GalaxyElement": [
+                        {
+                            "id": "140",
+                            "galaxy_cluster_id": "32",
+                            "key": "external_id",
+                            "value": "S0039"
+                        },
+                        {
+                            "id": "141",
+                            "galaxy_cluster_id": "32",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0039"
+                        },
+                        {
+                            "id": "142",
+                            "galaxy_cluster_id": "32",
+                            "key": "refs",
+                            "value": "https:\/\/msdn.microsoft.com\/en-us\/library\/aa939914"
+                        },
+                        {
+                            "id": "143",
+                            "galaxy_cluster_id": "32",
+                            "key": "refs",
+                            "value": "http:\/\/windowsitpro.com\/windows\/netexe-reference"
+                        },
+                        {
+                            "id": "144",
+                            "galaxy_cluster_id": "32",
+                            "key": "synonyms",
+                            "value": "Net"
+                        },
+                        {
+                            "id": "145",
+                            "galaxy_cluster_id": "32",
+                            "key": "synonyms",
+                            "value": "net.exe"
+                        }
+                    ]
+                },
+                {
+                    "id": "33",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "PsExec - S0029",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"PsExec - S0029\"",
+                    "description": "PsExec is a free Microsoft tool that can be used to execute a program on another computer. It is used by IT administrators and attackers. (Citation: Russinovich Sysinternals) (Citation: SANS PsExec)\n\nAliases: PsExec",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "ff6caf67-ea1f-4895-b80e-4bb0fc31c6db",
+                    "GalaxyElement": [
+                        {
+                            "id": "146",
+                            "galaxy_cluster_id": "33",
+                            "key": "external_id",
+                            "value": "S0029"
+                        },
+                        {
+                            "id": "147",
+                            "galaxy_cluster_id": "33",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0029"
+                        },
+                        {
+                            "id": "148",
+                            "galaxy_cluster_id": "33",
+                            "key": "refs",
+                            "value": "https:\/\/technet.microsoft.com\/en-us\/sysinternals\/bb897553.aspx"
+                        },
+                        {
+                            "id": "149",
+                            "galaxy_cluster_id": "33",
+                            "key": "refs",
+                            "value": "https:\/\/digital-forensics.sans.org\/blog\/2012\/12\/17\/protecting-privileged-domain-accounts-psexec-deep-dive"
+                        },
+                        {
+                            "id": "150",
+                            "galaxy_cluster_id": "33",
+                            "key": "synonyms",
+                            "value": "PsExec"
+                        }
+                    ]
+                },
+                {
+                    "id": "34",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "certutil - S0160",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"certutil - S0160\"",
+                    "description": "Certutil is a command-line utility that can be used to obtain certificate authority information and configure Certificate Services. (Citation: TechNet Certutil)\n\nAliases: certutil, certutil.exe",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "0a68f1f1-da74-4d28-8d9a-696c082706cc",
+                    "GalaxyElement": [
+                        {
+                            "id": "151",
+                            "galaxy_cluster_id": "34",
+                            "key": "external_id",
+                            "value": "S0160"
+                        },
+                        {
+                            "id": "152",
+                            "galaxy_cluster_id": "34",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0160"
+                        },
+                        {
+                            "id": "153",
+                            "galaxy_cluster_id": "34",
+                            "key": "refs",
+                            "value": "https:\/\/technet.microsoft.com\/library\/cc732443.aspx"
+                        },
+                        {
+                            "id": "154",
+                            "galaxy_cluster_id": "34",
+                            "key": "synonyms",
+                            "value": "certutil"
+                        },
+                        {
+                            "id": "155",
+                            "galaxy_cluster_id": "34",
+                            "key": "synonyms",
+                            "value": "certutil.exe"
+                        }
+                    ]
+                },
+                {
+                    "id": "35",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Arp - S0099",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Arp - S0099\"",
+                    "description": "Arp displays information about a system's Address Resolution Protocol (ARP) cache. (Citation: TechNet Arp)\n\nAliases: Arp, arp.exe",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "30489451-5886-4c46-90c9-0dff9adc5252",
+                    "GalaxyElement": [
+                        {
+                            "id": "156",
+                            "galaxy_cluster_id": "35",
+                            "key": "external_id",
+                            "value": "S0099"
+                        },
+                        {
+                            "id": "157",
+                            "galaxy_cluster_id": "35",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0099"
+                        },
+                        {
+                            "id": "158",
+                            "galaxy_cluster_id": "35",
+                            "key": "refs",
+                            "value": "https:\/\/technet.microsoft.com\/en-us\/library\/bb490864.aspx"
+                        },
+                        {
+                            "id": "159",
+                            "galaxy_cluster_id": "35",
+                            "key": "synonyms",
+                            "value": "Arp"
+                        },
+                        {
+                            "id": "160",
+                            "galaxy_cluster_id": "35",
+                            "key": "synonyms",
+                            "value": "arp.exe"
+                        }
+                    ]
+                },
+                {
+                    "id": "36",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "cmd - S0106",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"cmd - S0106\"",
+                    "description": "cmd is the Windows command-line interpreter that can be used to interact with systems and execute other processes and utilities. (Citation: TechNet Cmd)\n\nCmd.exe contains native functionality to perform many operations to interact with the system, including listing files in a directory (e.g., <code>dir<\/code> (Citation: TechNet Dir)), deleting files (e.g., <code>del<\/code> (Citation: TechNet Del)), and copying files (e.g., <code>copy<\/code> (Citation: TechNet Copy)).\n\nAliases: cmd, cmd.exe",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "bba595da-b73a-4354-aa6c-224d4de7cb4e",
+                    "GalaxyElement": [
+                        {
+                            "id": "161",
+                            "galaxy_cluster_id": "36",
+                            "key": "external_id",
+                            "value": "S0106"
+                        },
+                        {
+                            "id": "162",
+                            "galaxy_cluster_id": "36",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0106"
+                        },
+                        {
+                            "id": "163",
+                            "galaxy_cluster_id": "36",
+                            "key": "refs",
+                            "value": "https:\/\/technet.microsoft.com\/en-us\/library\/bb490880.aspx"
+                        },
+                        {
+                            "id": "164",
+                            "galaxy_cluster_id": "36",
+                            "key": "refs",
+                            "value": "https:\/\/technet.microsoft.com\/en-us\/library\/cc755121.aspx"
+                        },
+                        {
+                            "id": "165",
+                            "galaxy_cluster_id": "36",
+                            "key": "refs",
+                            "value": "https:\/\/technet.microsoft.com\/en-us\/library\/cc771049.aspx"
+                        },
+                        {
+                            "id": "166",
+                            "galaxy_cluster_id": "36",
+                            "key": "refs",
+                            "value": "https:\/\/technet.microsoft.com\/en-us\/library\/bb490886.aspx"
+                        },
+                        {
+                            "id": "167",
+                            "galaxy_cluster_id": "36",
+                            "key": "synonyms",
+                            "value": "cmd"
+                        },
+                        {
+                            "id": "168",
+                            "galaxy_cluster_id": "36",
+                            "key": "synonyms",
+                            "value": "cmd.exe"
+                        }
+                    ]
+                },
+                {
+                    "id": "37",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Havij - S0224",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Havij - S0224\"",
+                    "description": "Havij is an automatic SQL Injection tool distributed by the Iranian ITSecTeam security company. Havij has been used by penetration testers and adversaries. (Citation: Check Point Havij Analysis)\n\nAliases: Havij",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "fbd727ea-c0dc-42a9-8448-9e12962d1ab5",
+                    "GalaxyElement": [
+                        {
+                            "id": "169",
+                            "galaxy_cluster_id": "37",
+                            "key": "external_id",
+                            "value": "S0224"
+                        },
+                        {
+                            "id": "170",
+                            "galaxy_cluster_id": "37",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0224"
+                        },
+                        {
+                            "id": "171",
+                            "galaxy_cluster_id": "37",
+                            "key": "refs",
+                            "value": "https:\/\/blog.checkpoint.com\/2015\/05\/14\/analysis-havij-sql-injection-tool\/"
+                        },
+                        {
+                            "id": "172",
+                            "galaxy_cluster_id": "37",
+                            "key": "synonyms",
+                            "value": "Havij"
+                        }
+                    ]
+                },
+                {
+                    "id": "38",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "PowerSploit - S0194",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"PowerSploit - S0194\"",
+                    "description": "PowerSploit is an open source, offensive security framework compromised of PowerShell modules and scripts that perform a wide range of tasks related to penetration testing such as code execution, persistence, bypassing anti-virus, recon, and exfiltration. (Citation: GitHub PowerSploit May 2012) (Citation: PowerShellMagazine PowerSploit July 2014) (Citation: PowerSploit Documentation)\n\nAliases: PowerSploit",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "13cd9151-83b7-410d-9f98-25d0f0d1d80d",
+                    "GalaxyElement": [
+                        {
+                            "id": "173",
+                            "galaxy_cluster_id": "38",
+                            "key": "external_id",
+                            "value": "S0194"
+                        },
+                        {
+                            "id": "174",
+                            "galaxy_cluster_id": "38",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0194"
+                        },
+                        {
+                            "id": "175",
+                            "galaxy_cluster_id": "38",
+                            "key": "refs",
+                            "value": "https:\/\/github.com\/PowerShellMafia\/PowerSploit"
+                        },
+                        {
+                            "id": "176",
+                            "galaxy_cluster_id": "38",
+                            "key": "refs",
+                            "value": "http:\/\/www.powershellmagazine.com\/2014\/07\/08\/powersploit\/"
+                        },
+                        {
+                            "id": "177",
+                            "galaxy_cluster_id": "38",
+                            "key": "refs",
+                            "value": "http:\/\/powersploit.readthedocs.io"
+                        },
+                        {
+                            "id": "178",
+                            "galaxy_cluster_id": "38",
+                            "key": "synonyms",
+                            "value": "PowerSploit"
+                        }
+                    ]
+                },
+                {
+                    "id": "39",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "meek - S0175",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"meek - S0175\"",
+                    "description": "meek is an open-source Tor plugin that tunnels Tor traffic through HTTPS connections.\n\nAliases: meek",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "65370d0b-3bd4-4653-8cf9-daf56f6be830",
+                    "GalaxyElement": [
+                        {
+                            "id": "179",
+                            "galaxy_cluster_id": "39",
+                            "key": "external_id",
+                            "value": "S0175"
+                        },
+                        {
+                            "id": "180",
+                            "galaxy_cluster_id": "39",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0175"
+                        },
+                        {
+                            "id": "181",
+                            "galaxy_cluster_id": "39",
+                            "key": "synonyms",
+                            "value": "meek"
+                        }
+                    ]
+                },
+                {
+                    "id": "40",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Reg - S0075",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Reg - S0075\"",
+                    "description": "Reg is a Windows utility used to interact with the Windows Registry. It can be used at the command-line interface to query, add, modify, and remove information. (Citation: Microsoft Reg)\n\nUtilities such as Reg are known to be used by persistent threats. (Citation: Windows Commands JPCERT)\n\nAliases: Reg, reg.exe",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "cde2d700-9ed1-46cf-9bce-07364fe8b24f",
+                    "GalaxyElement": [
+                        {
+                            "id": "182",
+                            "galaxy_cluster_id": "40",
+                            "key": "external_id",
+                            "value": "S0075"
+                        },
+                        {
+                            "id": "183",
+                            "galaxy_cluster_id": "40",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0075"
+                        },
+                        {
+                            "id": "184",
+                            "galaxy_cluster_id": "40",
+                            "key": "refs",
+                            "value": "https:\/\/technet.microsoft.com\/en-us\/library\/cc732643.aspx"
+                        },
+                        {
+                            "id": "185",
+                            "galaxy_cluster_id": "40",
+                            "key": "refs",
+                            "value": "http:\/\/blog.jpcert.or.jp\/2016\/01\/windows-commands-abused-by-attackers.html"
+                        },
+                        {
+                            "id": "186",
+                            "galaxy_cluster_id": "40",
+                            "key": "synonyms",
+                            "value": "Reg"
+                        },
+                        {
+                            "id": "187",
+                            "galaxy_cluster_id": "40",
+                            "key": "synonyms",
+                            "value": "reg.exe"
+                        }
+                    ]
+                },
+                {
+                    "id": "41",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "spwebmember - S0227",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"spwebmember - S0227\"",
+                    "description": "spwebmember is a Microsoft SharePoint enumeration and data dumping tool written in .NET. (Citation: NCC Group APT15 Alive and Strong)\n\nAliases: spwebmember",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "33b9e38f-103c-412d-bdcf-904a91fff1e4",
+                    "GalaxyElement": [
+                        {
+                            "id": "188",
+                            "galaxy_cluster_id": "41",
+                            "key": "external_id",
+                            "value": "S0227"
+                        },
+                        {
+                            "id": "189",
+                            "galaxy_cluster_id": "41",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0227"
+                        },
+                        {
+                            "id": "190",
+                            "galaxy_cluster_id": "41",
+                            "key": "refs",
+                            "value": "https:\/\/www.nccgroup.trust\/uk\/about-us\/newsroom-and-events\/blogs\/2018\/march\/apt15-is-alive-and-strong-an-analysis-of-royalcli-and-royaldns\/"
+                        },
+                        {
+                            "id": "191",
+                            "galaxy_cluster_id": "41",
+                            "key": "synonyms",
+                            "value": "spwebmember"
+                        }
+                    ]
+                },
+                {
+                    "id": "42",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Pupy - S0192",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Pupy - S0192\"",
+                    "description": "Pupy is an open source, cross-platform (Windows, Linux, OSX, Android) remote administration and post-exploitation tool.  (Citation: GitHub Pupy) It is written in Python and can be generated as a payload in several different ways (Windows exe, Python file, PowerShell oneliner\/file, Linux elf, APK, Rubber Ducky, etc.). (Citation: GitHub Pupy) Pupy is publicly available on GitHub.  (Citation: GitHub Pupy)\n\nAliases: Pupy",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "cb69b20d-56d0-41ab-8440-4a4b251614d4",
+                    "GalaxyElement": [
+                        {
+                            "id": "192",
+                            "galaxy_cluster_id": "42",
+                            "key": "external_id",
+                            "value": "S0192"
+                        },
+                        {
+                            "id": "193",
+                            "galaxy_cluster_id": "42",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0192"
+                        },
+                        {
+                            "id": "194",
+                            "galaxy_cluster_id": "42",
+                            "key": "refs",
+                            "value": "https:\/\/github.com\/n1nj4sec\/pupy"
+                        },
+                        {
+                            "id": "195",
+                            "galaxy_cluster_id": "42",
+                            "key": "synonyms",
+                            "value": "Pupy"
+                        }
+                    ]
+                },
+                {
+                    "id": "43",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "sqlmap - S0225",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"sqlmap - S0225\"",
+                    "description": "sqlmap is an open source penetration testing tool that can be used to automate the process of detecting and exploiting SQL injection flaws. (Citation: sqlmap Introduction)\n\nAliases: sqlmap",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "9a2640c2-9f43-46fe-b13f-bde881e55555",
+                    "GalaxyElement": [
+                        {
+                            "id": "196",
+                            "galaxy_cluster_id": "43",
+                            "key": "external_id",
+                            "value": "S0225"
+                        },
+                        {
+                            "id": "197",
+                            "galaxy_cluster_id": "43",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0225"
+                        },
+                        {
+                            "id": "198",
+                            "galaxy_cluster_id": "43",
+                            "key": "refs",
+                            "value": "http:\/\/sqlmap.org\/"
+                        },
+                        {
+                            "id": "199",
+                            "galaxy_cluster_id": "43",
+                            "key": "synonyms",
+                            "value": "sqlmap"
+                        }
+                    ]
+                },
+                {
+                    "id": "44",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Cobalt Strike - S0154",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Cobalt Strike - S0154\"",
+                    "description": "Cobalt Strike is a commercial, full-featured, penetration testing tool which bills itself as \u201cadversary simulation software designed to execute targeted attacks and emulate the post-exploitation actions of advanced threat actors\u201d.  Cobalt Strike\u2019s interactive post-exploit capabilities cover the full range of ATT&CK tactics, all executed within a single, integrated system. (Citation: cobaltstrike manual)\n\nIn addition to its own capabilities, Cobalt Strike leverages the capabilities of other well-known tools such as Metasploit and Mimikatz. (Citation: cobaltstrike manual)\n\nAliases: Cobalt Strike\n\nContributors: Josh Abraham",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "aafea02e-ece5-4bb2-91a6-3bf8c7f38a39",
+                    "GalaxyElement": [
+                        {
+                            "id": "200",
+                            "galaxy_cluster_id": "44",
+                            "key": "external_id",
+                            "value": "S0154"
+                        },
+                        {
+                            "id": "201",
+                            "galaxy_cluster_id": "44",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0154"
+                        },
+                        {
+                            "id": "202",
+                            "galaxy_cluster_id": "44",
+                            "key": "refs",
+                            "value": "https:\/\/cobaltstrike.com\/downloads\/csmanual38.pdf"
+                        },
+                        {
+                            "id": "203",
+                            "galaxy_cluster_id": "44",
+                            "key": "synonyms",
+                            "value": "Cobalt Strike"
+                        }
+                    ]
+                },
+                {
+                    "id": "45",
+                    "collection_uuid": "",
+                    "type": "mitre-enterprise-attack-tool",
+                    "value": "Invoke-PSImage - S0231",
+                    "tag_name": "misp-galaxy:mitre-enterprise-attack-tool=\"Invoke-PSImage - S0231\"",
+                    "description": "Invoke-PSImage takes a PowerShell script and embeds the bytes of the script into the pixels of a PNG image. It generates a one liner for executing either from a file of from the web. Example of usage is embedding the PowerShell code from the Invoke-Mimikatz module and embed it into an image file. By calling the image file from a macro for example, the macro will download the picture and execute the PowerShell code, which in this case will dump the passwords. (Citation: GitHub Invoke-PSImage)\n\nAliases: Invoke-PSImage\n\nContributors: Christiaan Beek, @ChristiaanBeek",
+                    "galaxy_id": "1",
+                    "source": "https:\/\/github.com\/mitre\/cti",
+                    "authors": [
+                        "MITRE"
+                    ],
+                    "version": "7",
+                    "uuid": "b52d6583-14a2-4ddc-8527-87fd2142558f",
+                    "GalaxyElement": [
+                        {
+                            "id": "204",
+                            "galaxy_cluster_id": "45",
+                            "key": "external_id",
+                            "value": "S0231"
+                        },
+                        {
+                            "id": "205",
+                            "galaxy_cluster_id": "45",
+                            "key": "refs",
+                            "value": "https:\/\/attack.mitre.org\/wiki\/Software\/S0231"
+                        },
+                        {
+                            "id": "206",
+                            "galaxy_cluster_id": "45",
+                            "key": "refs",
+                            "value": "https:\/\/github.com\/peewpw\/Invoke-PSImage"
+                        },
+                        {
+                            "id": "207",
+                            "galaxy_cluster_id": "45",
+                            "key": "synonyms",
+                            "value": "Invoke-PSImage"
+                        }
+                    ]
+                }
+            ]
+        }
+    http_version: 
+  recorded_at: Sat, 21 Sep 2019 23:32:22 GMT
+recorded_with: VCR 5.0.0

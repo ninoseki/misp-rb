@@ -1,0 +1,99 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<API_ENDPOINT>/tags/add"
+    body:
+      encoding: UTF-8
+      string: '{"Tag":{"name":"test:created"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - "<API_KEY>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 20 Sep 2019 09:28:24 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Set-Cookie:
+      - MISP-5d8437be-a2f0-4280-9119-1bec2dc5be98=23nemvntbgcsupdvn60l2ejqrp; expires=Fri,
+        20-Sep-2019 10:28:24 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d8437be-a2f0-4280-9119-1bec2dc5be98=23nemvntbgcsupdvn60l2ejqrp; expires=Fri,
+        20-Sep-2019 10:28:24 GMT; Max-Age=3600; path=/; HttpOnly
+      Content-Length:
+      - '236'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "Tag": {
+                "id": "2",
+                "name": "test:created",
+                "colour": "#d11a32",
+                "exportable": true,
+                "org_id": "0",
+                "user_id": "0",
+                "hide_tag": false,
+                "numerical_value": null
+            }
+        }
+    http_version: 
+  recorded_at: Fri, 20 Sep 2019 09:34:24 GMT
+- request:
+    method: post
+    uri: "<API_ENDPOINT>/tags/edit/2"
+    body:
+      encoding: UTF-8
+      string: '{"Tag":{"name":"test:created"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - "<API_KEY>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 20 Sep 2019 09:28:24 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Set-Cookie:
+      - MISP-5d8437be-a2f0-4280-9119-1bec2dc5be98=oc3dcgbc1lfb36mfmgce6rtvhl; expires=Fri,
+        20-Sep-2019 10:28:24 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d8437be-a2f0-4280-9119-1bec2dc5be98=oc3dcgbc1lfb36mfmgce6rtvhl; expires=Fri,
+        20-Sep-2019 10:28:24 GMT; Max-Age=3600; path=/; HttpOnly
+      Content-Length:
+      - '236'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "Tag": {
+                "id": "2",
+                "name": "test:created",
+                "colour": "#d11a32",
+                "exportable": true,
+                "org_id": "0",
+                "user_id": "0",
+                "hide_tag": false,
+                "numerical_value": null
+            }
+        }
+    http_version: 
+  recorded_at: Fri, 20 Sep 2019 09:34:24 GMT
+recorded_with: VCR 5.0.0

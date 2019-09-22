@@ -1,0 +1,574 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: "<API_ENDPOINT>/galaxies/"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - "<API_KEY>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 21 Sep 2019 23:22:21 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Set-Cookie:
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=futs8ksk3l4hrgf66n4segsok1; expires=Sun,
+        22-Sep-2019 00:22:21 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=futs8ksk3l4hrgf66n4segsok1; expires=Sun,
+        22-Sep-2019 00:22:21 GMT; Max-Age=3600; path=/; HttpOnly
+      Content-Length:
+      - '17843'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: |-
+        [
+            {
+                "Galaxy": {
+                    "id": "1",
+                    "uuid": "fbfa0470-1707-11e8-be22-eb46b373fdd3",
+                    "name": "Enterprise Attack - Tool",
+                    "type": "mitre-enterprise-attack-tool",
+                    "description": "Name of ATT&CK software",
+                    "version": "5",
+                    "icon": "gavel",
+                    "namespace": "deprecated"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "2",
+                    "uuid": "1f665850-1708-11e8-9cfe-4792b2a91402",
+                    "name": "Pre Attack - Attack Pattern",
+                    "type": "mitre-pre-attack-attack-pattern",
+                    "description": "ATT&CK Tactic",
+                    "version": "5",
+                    "icon": "map",
+                    "namespace": "deprecated"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "3",
+                    "uuid": "6ab240ec-bd79-11e6-a4a6-cec0c932ce01",
+                    "name": "Exploit-Kit",
+                    "type": "exploit-kit",
+                    "description": "Exploit-Kit is an enumeration of some exploitation kits used by adversaries. The list includes document, browser and router exploit kits.It's not meant to be totally exhaustive but aim at covering the most seen in the past 5 years",
+                    "version": "4",
+                    "icon": "internet-explorer",
+                    "namespace": "misp"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "4",
+                    "uuid": "1d1c9af9-37fa-4deb-a928-f9b0abc7354a",
+                    "name": "Malpedia",
+                    "type": "malpedia",
+                    "description": "Malware galaxy based on Malpedia archive.",
+                    "version": "1",
+                    "icon": "shield",
+                    "namespace": "misp"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "5",
+                    "uuid": "fb5a36c0-1707-11e8-81f5-d732b22a4982",
+                    "name": "Enterprise Attack - Course of Action",
+                    "type": "mitre-enterprise-attack-course-of-action",
+                    "description": "ATT&CK Mitigation",
+                    "version": "5",
+                    "icon": "link",
+                    "namespace": "deprecated"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "6",
+                    "uuid": "e1bb134c-ae4d-11e7-8aa9-f78a37325439",
+                    "name": "Sector",
+                    "type": "sector",
+                    "description": "Activity sectors",
+                    "version": "2",
+                    "icon": "industry",
+                    "namespace": "misp"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "7",
+                    "uuid": "c4e851fa-775f-11e7-8163-b774922098cd",
+                    "name": "Attack Pattern",
+                    "type": "mitre-attack-pattern",
+                    "description": "ATT&CK Tactic",
+                    "version": "8",
+                    "icon": "map",
+                    "namespace": "mitre-attack",
+                    "kill_chain_order": {
+                        "mitre-attack": [
+                            "initial-access",
+                            "execution",
+                            "persistence",
+                            "privilege-escalation",
+                            "defense-evasion",
+                            "credential-access",
+                            "discovery",
+                            "lateral-movement",
+                            "collection",
+                            "command-and-control",
+                            "exfiltration",
+                            "impact"
+                        ],
+                        "mitre-mobile-attack": [
+                            "initial-access",
+                            "persistence",
+                            "privilege-escalation",
+                            "defense-evasion",
+                            "credential-access",
+                            "discovery",
+                            "lateral-movement",
+                            "effects",
+                            "collection",
+                            "exfiltration",
+                            "command-and-control",
+                            "network-effects",
+                            "remote-service-effects"
+                        ],
+                        "mitre-pre-attack": [
+                            "priority-definition-planning",
+                            "priority-definition-direction",
+                            "target-selection",
+                            "technical-information-gathering",
+                            "people-information-gathering",
+                            "organizational-information-gathering",
+                            "technical-weakness-identification",
+                            "people-weakness-identification",
+                            "organizational-weakness-identification",
+                            "adversary-opsec",
+                            "establish-&-maintain-infrastructure",
+                            "persona-development",
+                            "build-capabilities",
+                            "test-capabilities",
+                            "stage-capabilities"
+                        ]
+                    }
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "8",
+                    "uuid": "03e3853a-1708-11e8-95c1-67cf3f801a18",
+                    "name": "Mobile Attack - Malware",
+                    "type": "mitre-mobile-attack-malware",
+                    "description": "Name of ATT&CK software",
+                    "version": "5",
+                    "icon": "optin-monster",
+                    "namespace": "deprecated"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "9",
+                    "uuid": "84310ba3-fa6a-44aa-b378-b9e3271c58fa",
+                    "name": "Android",
+                    "type": "android",
+                    "description": "Android malware galaxy based on multiple open sources.",
+                    "version": "3",
+                    "icon": "android",
+                    "namespace": "misp"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "10",
+                    "uuid": "75436e27-cb57-4f32-bf1d-9636dd78a2bf",
+                    "name": "Backdoor",
+                    "type": "backdoor",
+                    "description": "Malware Backdoor galaxy.",
+                    "version": "1",
+                    "icon": "door-open",
+                    "namespace": "misp"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "11",
+                    "uuid": "1b9a7d8e-bd7a-11e6-a4a6-cec0c932ce01",
+                    "name": "TDS",
+                    "type": "tds",
+                    "description": "TDS is a list of Traffic Direction System used by adversaries",
+                    "version": "4",
+                    "icon": "cart-arrow-down",
+                    "namespace": "misp"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "12",
+                    "uuid": "3f44af2e-1480-4b6b-9aa8-f9bb21341078",
+                    "name": "Ransomware",
+                    "type": "ransomware",
+                    "description": "Ransomware galaxy based on https:\/\/docs.google.com\/spreadsheets\/d\/1TWS238xacAto-fLKh1n5uTsdijWdCEsGIM0Y0Hvmc5g\/pubhtml",
+                    "version": "4",
+                    "icon": "btc",
+                    "namespace": "misp"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "13",
+                    "uuid": "74c869e8-0b8e-4e5f-96e6-cd992e07a505",
+                    "name": "Microsoft Activity Group actor",
+                    "type": "microsoft-activity-group",
+                    "description": "Activity groups as described by Microsoft",
+                    "version": "3",
+                    "icon": "user-secret",
+                    "namespace": "misp"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "14",
+                    "uuid": "fbb19af0-1707-11e8-9fd6-dbd88a04d33a",
+                    "name": "Enterprise Attack - Malware",
+                    "type": "mitre-enterprise-attack-malware",
+                    "description": "Name of ATT&CK software",
+                    "version": "5",
+                    "icon": "optin-monster",
+                    "namespace": "deprecated"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "15",
+                    "uuid": "6fcb4472-6de4-11e7-b5f7-37771619e14e",
+                    "name": "Course of Action",
+                    "type": "mitre-course-of-action",
+                    "description": "ATT&CK Mitigation",
+                    "version": "7",
+                    "icon": "link",
+                    "namespace": "mitre-attack"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "16",
+                    "uuid": "c1dc03b2-89b3-42a5-9d41-782ef726435a",
+                    "name": "Election guidelines",
+                    "type": "guidelines",
+                    "description": "Universal Development and Security Guidelines as Applicable to Election Technology.",
+                    "version": "1",
+                    "icon": "map",
+                    "namespace": "misp",
+                    "kill_chain_order": {
+                        "example-of-threats": [
+                            "setup | party\/candidate-registration",
+                            "setup | electoral-rolls",
+                            "campaign | campaign-IT",
+                            "all-phases | governement-IT",
+                            "voting | election-technology",
+                            "campaign\/public-communication | media\/press"
+                        ]
+                    }
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "17",
+                    "uuid": "1fb6d5b4-1708-11e8-9836-8bbc8ce6866e",
+                    "name": "Pre Attack - Intrusion Set",
+                    "type": "mitre-pre-attack-intrusion-set",
+                    "description": "Name of ATT&CK Group",
+                    "version": "5",
+                    "icon": "user-secret",
+                    "namespace": "deprecated"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "18",
+                    "uuid": "9b8037f7-bc8f-4de1-a797-37266619bc0b",
+                    "name": "Tool",
+                    "type": "tool",
+                    "description": "Threat actors tools is an enumeration of tools used by adversaries. The list includes malware but also common software regularly used by the adversaries.",
+                    "version": "3",
+                    "icon": "optin-monster",
+                    "namespace": "misp"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "19",
+                    "uuid": "90ccdf38-1649-11e8-b8bf-e7326d553087",
+                    "name": "Botnet",
+                    "type": "botnet",
+                    "description": "Botnet galaxy.",
+                    "version": "2",
+                    "icon": "sitemap",
+                    "namespace": "misp"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "20",
+                    "uuid": "fa7016a8-1707-11e8-82d0-1b73d76eb204",
+                    "name": "Enterprise Attack - Attack Pattern",
+                    "type": "mitre-enterprise-attack-attack-pattern",
+                    "description": "ATT&CK Tactic",
+                    "version": "5",
+                    "icon": "map",
+                    "namespace": "deprecated"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "21",
+                    "uuid": "d752161c-78f6-11e7-a0ea-bfa79b407ce4",
+                    "name": "Malware",
+                    "type": "mitre-malware",
+                    "description": "Name of ATT&CK software",
+                    "version": "6",
+                    "icon": "optin-monster",
+                    "namespace": "mitre-attack"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "22",
+                    "uuid": "8168995b-adcd-4684-9e37-206c5771505a",
+                    "name": "Preventive Measure",
+                    "type": "preventive-measure",
+                    "description": "Preventive measures based on the ransomware document overview as published in https:\/\/docs.google.com\/spreadsheets\/d\/1TWS238xacAto-fLKh1n5uTsdijWdCEsGIM0Y0Hvmc5g\/pubhtml# . The preventive measures are quite generic and can fit any standard Windows infrastructure and their security measures.",
+                    "version": "3",
+                    "icon": "shield",
+                    "namespace": "misp"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "23",
+                    "uuid": "0314e554-1708-11e8-b049-8f8a42b5bb62",
+                    "name": "Mobile Attack - Intrusion Set",
+                    "type": "mitre-mobile-attack-intrusion-set",
+                    "description": "Name of ATT&CK Group",
+                    "version": "5",
+                    "icon": "user-secret",
+                    "namespace": "deprecated"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "24",
+                    "uuid": "f2ef4033-9001-4427-a418-df8c48e6d054",
+                    "name": "Stealer",
+                    "type": "stealer",
+                    "description": "Malware stealer galaxy.",
+                    "version": "1",
+                    "icon": "key",
+                    "namespace": "misp"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "25",
+                    "uuid": "fda8c7c2-f45a-11e7-9713-e75dac0492df",
+                    "name": "Branded Vulnerability",
+                    "type": "branded-vulnerability",
+                    "description": "List of known vulnerabilities and exploits",
+                    "version": "2",
+                    "icon": "bug",
+                    "namespace": "misp"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "26",
+                    "uuid": "68858a48-b898-11e7-91ce-bf424ef9b662",
+                    "name": "Cert EU GovSector",
+                    "type": "cert-eu-govsector",
+                    "description": "Cert EU GovSector",
+                    "version": "2",
+                    "icon": "globe",
+                    "namespace": "misp"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "27",
+                    "uuid": "59f20cce-5420-4084-afd5-0884c0a83832",
+                    "name": "Banker",
+                    "type": "banker",
+                    "description": "Banking malware galaxy.",
+                    "version": "3",
+                    "icon": "dollar-sign",
+                    "namespace": "misp"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "28",
+                    "uuid": "1023f364-7831-11e7-8318-43b5531983ab",
+                    "name": "Intrusion Set",
+                    "type": "mitre-intrusion-set",
+                    "description": "Name of ATT&CK Group",
+                    "version": "8",
+                    "icon": "user-secret",
+                    "namespace": "mitre-attack"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "29",
+                    "uuid": "0282356a-1708-11e8-8f53-975633d5c03c",
+                    "name": "Mobile Attack - Course of Action",
+                    "type": "mitre-mobile-attack-course-of-action",
+                    "description": "ATT&CK Mitigation",
+                    "version": "5",
+                    "icon": "link",
+                    "namespace": "deprecated"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "30",
+                    "uuid": "1d0b4bce-1708-11e8-9e6e-1b130c9b0a91",
+                    "name": "Mobile Attack - Tool",
+                    "type": "mitre-mobile-attack-tool",
+                    "description": "Name of ATT&CK software",
+                    "version": "5",
+                    "icon": "gavel",
+                    "namespace": "deprecated"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "31",
+                    "uuid": "d5cbd1a2-78f6-11e7-a833-7b9bccca9649",
+                    "name": "Tool",
+                    "type": "mitre-tool",
+                    "description": "Name of ATT&CK software",
+                    "version": "6",
+                    "icon": "gavel",
+                    "namespace": "mitre-attack"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "32",
+                    "uuid": "44574c7e-b732-4466-a7be-ef363374013a",
+                    "name": "o365-exchange-techniques",
+                    "type": "cloud-security",
+                    "description": "o365-exchange-techniques - Office365\/Exchange related techniques by @johnLaTwC",
+                    "version": "1",
+                    "icon": "map",
+                    "namespace": "misp",
+                    "kill_chain_order": {
+                        "tactics": [
+                            "Recon",
+                            "Compromise",
+                            "Persistence",
+                            "Expansion",
+                            "Actions on Intent"
+                        ]
+                    }
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "33",
+                    "uuid": "698774c7-8022-42c4-917f-8d6e4f06ada3",
+                    "name": "Threat Actor",
+                    "type": "threat-actor",
+                    "description": "Threat actors are characteristics of malicious actors (or adversaries) representing a cyber attack threat including presumed intent and historically observed behaviour.",
+                    "version": "3",
+                    "icon": "user-secret",
+                    "namespace": "misp"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "34",
+                    "uuid": "1c6d1332-1708-11e8-847c-e3c5643c41a5",
+                    "name": "Mobile Attack - Attack Pattern",
+                    "type": "mitre-mobile-attack-attack-pattern",
+                    "description": "ATT&CK Tactic",
+                    "version": "5",
+                    "icon": "map",
+                    "namespace": "deprecated"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "35",
+                    "uuid": "1f3b8c56-1708-11e8-b211-17a60c0f73ee",
+                    "name": "Enterprise Attack - Intrusion Set",
+                    "type": "mitre-enterprise-attack-intrusion-set",
+                    "description": "Name of ATT&CK Group",
+                    "version": "5",
+                    "icon": "user-secret",
+                    "namespace": "deprecated"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "36",
+                    "uuid": "709ed29c-aa00-11e9-82cd-67ac1a6ee3bc",
+                    "name": "Target Information",
+                    "type": "target-information",
+                    "description": "Description of targets of threat actors.",
+                    "version": "1",
+                    "icon": "bullseye",
+                    "namespace": "misp"
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "37",
+                    "uuid": "cc0c8ae9-aec2-42c6-9939-f4f82b051836",
+                    "name": "attck4fraud",
+                    "type": "financial-fraud",
+                    "description": "attck4fraud - Principles of MITRE ATT&CK in the fraud domain",
+                    "version": "1",
+                    "icon": "map",
+                    "namespace": "misp",
+                    "kill_chain_order": {
+                        "fraud-tactics": [
+                            "Initiation",
+                            "Target Compromise",
+                            "Perform Fraud",
+                            "Obtain Fraudulent Assets",
+                            "Assets Transfer",
+                            "Monetisation"
+                        ]
+                    }
+                }
+            },
+            {
+                "Galaxy": {
+                    "id": "38",
+                    "uuid": "06825db6-4797-11e7-ac4d-af25fdcdd299",
+                    "name": "RAT",
+                    "type": "rat",
+                    "description": "remote administration tool or remote access tool (RAT), also called sometimes remote access trojan, is a piece of software or programming that allows a remote \"operator\" to control a system as if they have physical access to that system.",
+                    "version": "3",
+                    "icon": "eye",
+                    "namespace": "misp"
+                }
+            }
+        ]
+    http_version: 
+  recorded_at: Sat, 21 Sep 2019 23:22:21 GMT
+recorded_with: VCR 5.0.0

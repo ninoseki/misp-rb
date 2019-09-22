@@ -14,6 +14,12 @@ require "vcr"
 
 require "misp"
 
+require_relative "./support/shared_examples/create_example"
+require_relative "./support/shared_examples/delete_example"
+require_relative "./support/shared_examples/get_example"
+require_relative "./support/shared_examples/list_example"
+require_relative "./support/shared_examples/update_example"
+
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = ".rspec_status"
@@ -27,7 +33,7 @@ RSpec.configure do |config|
 end
 
 ENV["MISP_API_KEY"] = "foo bar" unless ENV.key?("MISP_API_KEY")
-ENV["MISP_API_ENDPOINT"] = "foo bar" unless ENV.key?("MISP_API_ENDPOINT")
+ENV["MISP_API_ENDPOINT"] = "http://localhost:5000" unless ENV.key?("MISP_API_ENDPOINT")
 
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
@@ -36,6 +42,5 @@ VCR.configure do |config|
   config.ignore_localhost = false
 
   config.filter_sensitive_data("<API_KEY>") { ENV["MISP_API_KEY"] }
-  uri = URI(ENV["MISP_API_ENDPOINT"])
-  config.filter_sensitive_data("<API_ENDPOINT>") { uri.hostname }
+  config.filter_sensitive_data("<API_ENDPOINT>") { ENV["MISP_API_ENDPOINT"] }
 end
