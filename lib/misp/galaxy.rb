@@ -9,6 +9,8 @@ module MISP
     attr_reader :description
     attr_reader :version
 
+    attr_reader :galaxy_clusters
+
     def initialize(**attributes)
       attributes = normalize_attributes(attributes)
 
@@ -19,13 +21,7 @@ module MISP
       @description = attributes.dig(:description)
       @version = attributes.dig(:version)
 
-      @_galaxy_cluster = attributes.dig(:GalaxyCluster) || []
-    end
-
-    def galaxy_clusters
-      @galaxy_clusters ||= @_galaxy_cluster.map do |galaxy_cluster|
-        GalaxyCluster.new symbolize_keys(galaxy_cluster)
-      end
+      @galaxy_clusters = build_plural_attribute(items: attributes.dig(:GalaxyCluster), klass: GalaxyCluster)
     end
 
     def to_h

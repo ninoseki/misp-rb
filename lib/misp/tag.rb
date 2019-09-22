@@ -2,11 +2,11 @@
 
 module MISP
   class Tag < Base
-    attr_reader :id
-    attr_reader :name
-    attr_reader :colour
-    attr_reader :exportable
-    attr_reader :hide_tag
+    attr_accessor :id
+    attr_accessor :name
+    attr_accessor :colour
+    attr_accessor :exportable
+    attr_accessor :hide_tag
 
     def initialize(**attributes)
       attributes = normalize_attributes(attributes)
@@ -52,8 +52,9 @@ module MISP
       Tag.new(id: id).delete
     end
 
-    def update(attributes)
-      _post("/tags/edit/#{id}", wrap(attributes)) { |json| Tag.new symbolize_keys(json) }
+    def update(**attributes)
+      payload = to_h.merge(attributes)
+      _post("/tags/edit/#{id}", wrap(payload)) { |json| Tag.new symbolize_keys(json) }
     end
 
     def self.update(id, **attributes)

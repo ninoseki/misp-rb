@@ -2,20 +2,24 @@
 
 module MISP
   class Attribute < Base
-    attr_reader :id
-    attr_reader :type
-    attr_reader :category
-    attr_reader :to_ids
-    attr_reader :uuid
-    attr_reader :event_id
-    attr_reader :distribution
-    attr_reader :timestamp
-    attr_reader :comment
-    attr_reader :sharing_group_id
-    attr_reader :deleted
-    attr_reader :disable_correlation
-    attr_reader :value
-    attr_reader :data
+    attr_accessor :id
+    attr_accessor :type
+    attr_accessor :category
+    attr_accessor :to_ids
+    attr_accessor :uuid
+    attr_accessor :event_id
+    attr_accessor :distribution
+    attr_accessor :timestamp
+    attr_accessor :comment
+    attr_accessor :sharing_group_id
+    attr_accessor :deleted
+    attr_accessor :disable_correlation
+    attr_accessor :value
+    attr_accessor :data
+
+    attr_accessor :sharing_groups
+    attr_accessor :shadow_attributes
+    attr_accessor :tags
 
     def initialize(**attributes)
       attributes = normalize_attributes(attributes)
@@ -35,27 +39,9 @@ module MISP
       @value = attributes.dig(:value)
       @data = attributes.dig(:data)
 
-      @_sharing_groups = attributes.dig(:SharingGroup) || []
-      @_shadow_attributes = attributes.dig(:ShadowAttribute) || []
-      @_tags = attributes.dig(:Tag) || []
-    end
-
-    def sharing_groups
-      @sharing_groups ||= @_sharing_groups.map do |attributes|
-        SharingGroup.new symbolize_keys(attributes)
-      end
-    end
-
-    def shadow_attributes
-      @shadow_attributes ||= @_shadow_attributes.map do |attributes|
-        Attribute.new symbolize_keys(attributes)
-      end
-    end
-
-    def tags
-      @tags ||= @_tags.map do |attributes|
-        Tag.new symbolize_keys(attributes)
-      end
+      @sharing_groups = build_plural_attribute(items: attributes.dig(:SharingGroup), klass: SharingGroup)
+      @shadow_attributes = build_plural_attribute(items: attributes.dig(:ShadowAttribute), klass: Attribute )
+      @tags = build_plural_attribute(items: attributes.dig(:Tag), klass: Tag)
     end
 
     def to_h
@@ -102,6 +88,12 @@ module MISP
 
     def self.create(event_id, **attributes)
       new(attributes).create(event_id)
+    end
+
+    def update(**attrs)
+      payload = to_h.merge(attrs)
+      payload[:timestamp] = nil
+      _post("/attributes/edit/#{id}", wrap(payload)) { |json| Attribute.new symbolize_keys(json.dig("response", "Attribute")) }
     end
 
     def search(**params)

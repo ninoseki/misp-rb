@@ -16,6 +16,18 @@ module MISP
 
     private
 
+    def build_attribute(item:, klass:)
+      return nil unless item
+
+      klass.new symbolize_keys(item)
+    end
+
+    def build_plural_attribute(items:, klass:)
+      (items || []).map do |item|
+        klass.new symbolize_keys(item)
+      end
+    end
+
     def symbolize_keys(hash)
       hash.map { |k, v| [k.to_sym, v] }.to_h
     end

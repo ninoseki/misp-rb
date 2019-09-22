@@ -35,24 +35,8 @@ module MISP
 
       @_organisation = attributes.dig(:Organisation)
 
-      @_sharing_group_orgs = attributes.dig(:SharingGroupOrg) || []
-      @_sharing_group_servers = attributes.dig(:SharingGroupServer) || []
-    end
-
-    def organisation
-      @organisation ||= @_organisation ? Org.new(symbolize_keys(@_organisation)) : nil
-    end
-
-    def sharing_group_orgs
-      @sharing_group_orgs ||= @_sharing_group_orgs.map do |attributes|
-        SharingGroup.new symbolize_keys(attributes)
-      end
-    end
-
-    def sharing_group_servers
-      @sharing_group_servers ||= @_sharing_group_servers.map do |attributes|
-        SharingGroupServer.new symbolize_keys(attributes)
-      end
+      @sharing_group_orgs = build_plural_attribute(items: attributes.dig(:SharingGroupOrg), klass: SharingGroupOrg)
+      @sharing_group_servers = build_plural_attribute(items: attributes.dig(:SharingGroupServer), klass: SharingGroupServer)
     end
 
     def to_h

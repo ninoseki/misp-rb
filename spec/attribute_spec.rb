@@ -44,4 +44,12 @@ RSpec.describe MISP::Attribute, :vcr do
       expect(attribute.remove_tag(tag)).to be_a(Hash)
     end
   end
+
+  describe "#update" do
+    let(:attribute) { subject.create(event.id, attributes) }
+
+    it do
+      expect(attribute.update(value: "1.1.1.1")).to be_an(described_class)
+    end
+  end
 end

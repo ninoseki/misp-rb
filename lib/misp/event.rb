@@ -2,100 +2,66 @@
 
 module MISP
   class Event < Base
-    attr_reader :id
-    attr_reader :orgc_id
-    attr_reader :org_id
-    attr_reader :date
-    attr_reader :threat_level_id
-    attr_reader :info
-    attr_reader :published
-    attr_reader :uuid
-    attr_reader :attribute_count
-    attr_reader :analysis
-    attr_reader :timestamp
-    attr_reader :distribution
-    attr_reader :proposal_email_lock
-    attr_reader :locked
-    attr_reader :publish_timestamp
-    attr_reader :sharing_group_id
-    attr_reader :disable_correlation
-    attr_reader :event_creator_email
+    attr_accessor :id
+    attr_accessor :orgc_id
+    attr_accessor :org_id
+    attr_accessor :date
+    attr_accessor :threat_level_id
+    attr_accessor :info
+    attr_accessor :published
+    attr_accessor :uuid
+    attr_accessor :attribute_count
+    attr_accessor :analysis
+    attr_accessor :timestamp
+    attr_accessor :distribution
+    attr_accessor :proposal_email_lock
+    attr_accessor :locked
+    attr_accessor :publish_timestamp
+    attr_accessor :sharing_group_id
+    attr_accessor :disable_correlation
+    attr_accessor :event_creator_email
 
-    def initialize(**attributes)
-      attributes = normalize_attributes(attributes)
+    attr_accessor :org
+    attr_accessor :orgc
 
-      @id = attributes.dig(:id)
-      @orgc_id = attributes.dig(:orgc_id)
-      @org_id = attributes.dig(:org_id)
-      @date = attributes.dig(:date)
-      @threat_level_id = attributes.dig(:threat_level_id)
-      @info = attributes.dig(:info)
-      @published = attributes.dig(:published) || false
-      @uuid = attributes.dig(:uuid)
-      @attribute_count = attributes.dig(:attribute_count)
-      @analysis = attributes.dig(:analysis)
-      @timestamp = attributes.dig(:timestamp)
-      @distribution = attributes.dig(:distribution)
-      @proposal_email_lock = attributes.dig(:proposal_email_lock)
-      @locked = attributes.dig(:locked) || false
-      @publish_timestamp = attributes.dig(:publish_timestamp)
-      @sharing_group_id = attributes.dig(:sharing_group_id)
-      @disable_correlation = attributes.dig(:disable_correlation)
-      @event_creator_email = attributes.dig(:event_creator_email)
+    attr_accessor :sharing_groups
+    attr_accessor :attributes
+    attr_accessor :shadow_attributes
+    attr_accessor :related_events
+    attr_accessor :galaxies
+    attr_accessor :tags
 
-      @_org = attributes.dig(:Org)
-      @_orgc = attributes.dig(:Orgc)
+    def initialize(**attrs)
+      attrs = normalize_attributes(attrs)
 
-      @_sharing_groups = attributes.dig(:SharingGroup) || []
-      @_attributes = attributes.dig(:Attribute) || []
-      @_shadow_attributes = attributes.dig(:ShadowAttribute) || []
-      @_related_events = attributes.dig(:RelatedEvent) || []
-      @_galaxies = attributes.dig(:Galaxy) || []
-      @_tags = attributes.dig(:Tag) || []
-    end
+      @id = attrs.dig(:id)
+      @orgc_id = attrs.dig(:orgc_id)
+      @org_id = attrs.dig(:org_id)
+      @date = attrs.dig(:date)
+      @threat_level_id = attrs.dig(:threat_level_id)
+      @info = attrs.dig(:info)
+      @published = attrs.dig(:published) || false
+      @uuid = attrs.dig(:uuid)
+      @attribute_count = attrs.dig(:attribute_count)
+      @analysis = attrs.dig(:analysis)
+      @timestamp = attrs.dig(:timestamp)
+      @distribution = attrs.dig(:distribution)
+      @proposal_email_lock = attrs.dig(:proposal_email_lock)
+      @locked = attrs.dig(:locked) || false
+      @publish_timestamp = attrs.dig(:publish_timestamp)
+      @sharing_group_id = attrs.dig(:sharing_group_id)
+      @disable_correlation = attrs.dig(:disable_correlation)
+      @event_creator_email = attrs.dig(:event_creator_email)
 
-    def org
-      @org ||= @_org ? Org.new(symbolize_keys(@_org)) : nil
-    end
+      @org = build_attribute(item: attrs.dig(:Org), klass: Org)
+      @orgc = build_attribute(item: attrs.dig(:Orgc), klass: Orgc)
 
-    def orgc
-      @orgc ||= @_orgc ? Orgc.new(symbolize_keys(@_orgc)) : nil
-    end
-
-    def sharing_groups
-      @sharing_groups ||= @_sharing_groups.map do |attributes|
-        SharingGroup.new symbolize_keys(attributes)
-      end
-    end
-
-    def attributes
-      @attributes ||= @_attributes.map do |attributes|
-        Attribute.new symbolize_key(attributes)
-      end
-    end
-
-    def shadow_attributes
-      @shadow_attributes ||= @_shadow_attributes.map do |attributes|
-        Attribute.new symbolize_keys(attributes)
-      end
-    end
-
-    def related_events
-      @related_events ||= @_related_events.map do |attributes|
-        new symbolize_keys(attributes)
-      end
-    end
-
-    def galaxies
-      @galaxies ||= @_galaxies.map do |attributes|
-        Galaxy.new symbolize_keys(attributes)
-      end
-    end
-
-    def tags
-      @tags ||= @_tags.map do |attributes|
-        Tag.new symbolize_keys(attributes)
-      end
+      @sharing_groups = build_plural_attribute(items: attrs.dig(:SharingGroup), klass: SharingGroup)
+      @attributes = build_plural_attribute(items: attrs.dig(:Attribute), klass: Attribute)
+      @shadow_attributes = build_plural_attribute(items: attrs.dig(:ShadowAttribute), klass: Attribute )
+      @related_events = build_plural_attribute(items: attrs.dig(:RelatedEvent), klass: Attribute)
+      @galaxies = build_plural_attribute(items: attrs.dig(:Galaxy), klass: Galaxy)
+      @tags = build_plural_attribute(items: attrs.dig(:Tag), klass: Tag)
     end
 
     def to_h
@@ -118,8 +84,8 @@ module MISP
         sharing_group_id: sharing_group_id,
         disable_correlation: disable_correlation,
         event_creator_email: event_creator_email,
-        Org: org.to_h,
-        Orgc: orgc.to_h,
+        Org: (org ? org.to_h : nil),
+        Orgc: (orgc ? orgc.to_h : nil),
         SharingGroup: sharing_groups.map(&:to_h),
         Attribute: attributes.map(&:to_h),
         ShadowAttribute: shadow_attributes.map(&:to_h),
@@ -137,12 +103,13 @@ module MISP
       new.get id
     end
 
-    def create(**attributes)
-      _post("/events/add", wrap(attributes)) { |event| Event.new symbolize_keys(event) }
+    def create(**attrs)
+      payload = to_h.merge(attrs)
+      _post("/events/add", wrap(payload)) { |event| Event.new symbolize_keys(event) }
     end
 
-    def self.create(attributes)
-      new.create attributes
+    def self.create(**attrs)
+      new.create attrs
     end
 
     def delete
@@ -165,13 +132,14 @@ module MISP
       new.list
     end
 
-    def update(attributes)
-      attributes[:timestamp] = nil
-      _post("/events/#{id}", wrap(attributes)) { |event| Event.new symbolize_keys(event) }
+    def update(**attrs)
+      payload = to_h.merge(attrs)
+      payload[:timestamp] = nil
+      _post("/events/#{id}", wrap(payload)) { |event| Event.new symbolize_keys(event) }
     end
 
-    def self.update(id, **attributes)
-      new(id: id).update attributes
+    def self.update(id, **attrs)
+      new(id: id).update attrs
     end
 
     def search(**params)
@@ -192,21 +160,15 @@ module MISP
     end
 
     def add_attribute(attribute)
-      attribute = attribute.new(symbolize_keys(attribute)) unless attribute.is_a?(Attribute)
-
-      hash = to_h
-      hash[:Attribute] += [attribute.to_h]
-
-      update(hash)
+      attribute = Attribute.new(symbolize_keys(attribute)) unless attribute.is_a?(Attribute)
+      attributes << attribute
+      self
     end
 
     def add_tag(tag)
       tag = Tag.new(symbolize_keys(tag)) unless tag.is_a?(MISP::Tag)
-
-      hash = to_h
-      hash[:Tag] += [tag.to_h]
-
-      update(hash)
+      tags << tag
+      self
     end
   end
 end

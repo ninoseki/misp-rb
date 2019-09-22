@@ -7,6 +7,8 @@ module MISP
     attr_reader :server_id
     attr_reader :all_orgs
 
+    attr_reader :servers
+
     def initialize(**attributes)
       attributes = normalize_attributes(attributes)
 
@@ -15,13 +17,7 @@ module MISP
       @server_id = attributes.dig(:server_id)
       @all_orgs = attributes.dig(:all_orgs)
 
-      @_servers = attributes.dig(:Server) || []
-    end
-
-    def servers
-      @servers ||= @_servers.map do |server|
-        Server.new symbolize_keys(server)
-      end
+      @servers = build_plural_attribute(items: attributes.dig(:Server), klass: Server)
     end
 
     def to_h

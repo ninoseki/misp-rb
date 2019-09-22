@@ -7,6 +7,8 @@ module MISP
     attr_reader :org_id
     attr_reader :extend
 
+    attr_reader :organization
+
     def initialize(**attributes)
       attributes = normalize_attributes(attributes)
 
@@ -15,11 +17,7 @@ module MISP
       @org_id = attributes.dig(:org_id)
       @extend = attributes.dig(:extend)
 
-      @_org = attributes.dig(:Organization)
-    end
-
-    def organization
-      @organization ||= @_org ? Org.new(symbolize_keys(@_org)) : nil
+      @organization = build_attribute(item: attributes.dig(:Organization), klass: Org)
     end
 
     def to_h
