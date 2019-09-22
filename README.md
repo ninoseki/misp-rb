@@ -18,15 +18,18 @@ gem install misp
 
 ### Configuration
 
+By default, it tries to load configurations from environmental variables:
+
+- MISP API endpoint from ENV["MISP_API_ENDPOINT"]
+- MISP API key from ENV["MISP_API_KEY"]
+
+Also, you can configure them manually.
+
 ```ruby
 require "misp"
 
-# In default, it tries to load configurations from environmental variables:
-# - MISP API endpoint(URL) from ENV["MISP_API_ENDPOINT"]
-# - MISP API key from ENV["MISP_API_KEY"]
-# You can configure them manually
 MISP.configure do |config|
-  config.api_endpoint = "MISP_URL (e.g. https://misppriv.circl.lu)"
+  config.api_endpoint = "https://misppriv.circl.lu"
   config.api_key = "MISP_API_KEY"
 end
 ```
