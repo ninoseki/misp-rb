@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<API_ENDPOINT>/attributes/restSearch"
+    body:
+      encoding: UTF-8
+      string: '{"returnFormat":"json","limit":"100","page":"0","value":"8.8.8.8","type":"ip-dst"}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - "<API_KEY>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Sep 2019 00:04:47 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Set-Cookie:
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=fbts4565uqe8glutmg1ijum02r; expires=Sun,
+        22-Sep-2019 01:04:47 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=fbts4565uqe8glutmg1ijum02r; expires=Sun,
+        22-Sep-2019 01:04:47 GMT; Max-Age=3600; path=/; HttpOnly
+      X-Result-Count:
+      - '1'
+      X-Export-Module-Used:
+      - json
+      X-Response-Format:
+      - json
+      Content-Length:
+      - '469'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"response": {"Attribute": [{"id":"1","event_id":"9","object_id":"0","object_relation":null,"category":"Network
+        activity","type":"ip-dst","to_ids":true,"uuid":"5d86b950-77d8-4b29-a40f-1c300a00020f","timestamp":"1569110352","distribution":"5","sharing_group_id":"0","comment":"","deleted":false,"disable_correlation":false,"value":"8.8.8.8","Event":{"org_id":"1","distribution":"1","id":"9","info":"test","orgc_id":"1","uuid":"5d86b950-5210-47e4-92df-1c2e0a00020f"}}]}}
+
+        '
+    http_version: 
+  recorded_at: Sun, 22 Sep 2019 00:22:40 GMT
+recorded_with: VCR 5.0.0

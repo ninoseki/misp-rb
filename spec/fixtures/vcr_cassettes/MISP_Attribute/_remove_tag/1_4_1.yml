@@ -1,0 +1,267 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<API_ENDPOINT>/events/add"
+    body:
+      encoding: UTF-8
+      string: '{"Event":{"info":"test"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - "<API_KEY>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Sep 2019 01:53:48 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Set-Cookie:
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=t961j645s56da67e8a1avi67cm; expires=Sun,
+        22-Sep-2019 02:53:48 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=t961j645s56da67e8a1avi67cm; expires=Sun,
+        22-Sep-2019 02:53:48 GMT; Max-Age=3600; path=/; HttpOnly
+      Content-Length:
+      - '1093'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "Event": {
+                "id": "19",
+                "orgc_id": "1",
+                "org_id": "1",
+                "date": "2019-09-22",
+                "threat_level_id": "4",
+                "info": "test",
+                "published": false,
+                "uuid": "5d86d42c-e1c8-46e0-b886-1c2c0a00020f",
+                "attribute_count": "0",
+                "analysis": "0",
+                "timestamp": "1569117228",
+                "distribution": "1",
+                "proposal_email_lock": false,
+                "locked": false,
+                "publish_timestamp": "0",
+                "sharing_group_id": "0",
+                "disable_correlation": false,
+                "extends_uuid": "",
+                "event_creator_email": "admin@admin.test",
+                "Org": {
+                    "id": "1",
+                    "name": "ORGNAME",
+                    "uuid": "5d84de75-ddd0-4b00-865a-19b521b86aea",
+                    "local": true
+                },
+                "Orgc": {
+                    "id": "1",
+                    "name": "ORGNAME",
+                    "uuid": "5d84de75-ddd0-4b00-865a-19b521b86aea",
+                    "local": true
+                },
+                "Attribute": [],
+                "ShadowAttribute": [],
+                "RelatedEvent": [],
+                "Galaxy": [],
+                "Object": []
+            }
+        }
+    http_version: 
+  recorded_at: Sun, 22 Sep 2019 02:10:29 GMT
+- request:
+    method: post
+    uri: "<API_ENDPOINT>/attributes/add/19"
+    body:
+      encoding: UTF-8
+      string: '{"Attribute":{"type":"ip-dst","value":"8.8.8.8","SharingGroup":[],"ShadowAttribute":[],"Tag":[]}}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - "<API_KEY>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Sep 2019 01:53:48 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Set-Cookie:
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=inqqrg9vu5sk08deqhl0ir91mm; expires=Sun,
+        22-Sep-2019 02:53:48 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=inqqrg9vu5sk08deqhl0ir91mm; expires=Sun,
+        22-Sep-2019 02:53:48 GMT; Max-Age=3600; path=/; HttpOnly
+      Content-Length:
+      - '565'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "Attribute": {
+                "id": "11",
+                "event_id": "19",
+                "object_id": "0",
+                "object_relation": null,
+                "category": "Network activity",
+                "type": "ip-dst",
+                "value1": "8.8.8.8",
+                "value2": "",
+                "to_ids": true,
+                "uuid": "5d86d42c-f96c-47be-9e91-1c2f0a00020f",
+                "timestamp": "1569117228",
+                "distribution": "5",
+                "sharing_group_id": "0",
+                "comment": "",
+                "deleted": false,
+                "disable_correlation": false,
+                "value": "8.8.8.8"
+            },
+            "AttributeTag": []
+        }
+    http_version: 
+  recorded_at: Sun, 22 Sep 2019 02:10:29 GMT
+- request:
+    method: post
+    uri: "<API_ENDPOINT>/tags/add"
+    body:
+      encoding: UTF-8
+      string: '{"Tag":{"name":"test tag"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - "<API_KEY>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Sep 2019 01:53:49 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Set-Cookie:
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=3a48h8lomd1r9oqivl6je0klo0; expires=Sun,
+        22-Sep-2019 02:53:49 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=3a48h8lomd1r9oqivl6je0klo0; expires=Sun,
+        22-Sep-2019 02:53:49 GMT; Max-Age=3600; path=/; HttpOnly
+      Content-Length:
+      - '232'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "Tag": {
+                "id": "4",
+                "name": "test tag",
+                "colour": "#5bafb8",
+                "exportable": true,
+                "org_id": "0",
+                "user_id": "0",
+                "hide_tag": false,
+                "numerical_value": null
+            }
+        }
+    http_version: 
+  recorded_at: Sun, 22 Sep 2019 02:10:29 GMT
+- request:
+    method: post
+    uri: "<API_ENDPOINT>/tags/attachTagToObject"
+    body:
+      encoding: UTF-8
+      string: '{"uuid":"5d86d42c-f96c-47be-9e91-1c2f0a00020f","tag":"test tag"}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - "<API_KEY>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Sep 2019 01:53:49 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Set-Cookie:
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=2a6t9iesqa348d2qvn4ummfuuf; expires=Sun,
+        22-Sep-2019 02:53:49 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=2a6t9iesqa348d2qvn4ummfuuf; expires=Sun,
+        22-Sep-2019 02:53:49 GMT; Max-Age=3600; path=/; HttpOnly
+      Content-Length:
+      - '187'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "name": "Tag test tag(4) successfully attached to Attribute(11).",
+            "message": "Tag test tag(4) successfully attached to Attribute(11).",
+            "url": "\/tags\/attachTagToObject"
+        }
+    http_version: 
+  recorded_at: Sun, 22 Sep 2019 02:10:29 GMT
+- request:
+    method: post
+    uri: "<API_ENDPOINT>/tags/removeTagFromObject"
+    body:
+      encoding: UTF-8
+      string: '{"uuid":"5d86d42c-f96c-47be-9e91-1c2f0a00020f","tag":"test tag"}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Authorization:
+      - "<API_KEY>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Sep 2019 01:53:49 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Set-Cookie:
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=dro441de9875asca6s7tnakb29; expires=Sun,
+        22-Sep-2019 02:53:49 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=dro441de9875asca6s7tnakb29; expires=Sun,
+        22-Sep-2019 02:53:49 GMT; Max-Age=3600; path=/; HttpOnly
+      Content-Length:
+      - '191'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "name": "Tag test tag(4) successfully removed from Attribute(11).",
+            "message": "Tag test tag(4) successfully removed from Attribute(11).",
+            "url": "\/tags\/removeTagFromObject"
+        }
+    http_version: 
+  recorded_at: Sun, 22 Sep 2019 02:10:29 GMT
+recorded_with: VCR 5.0.0
