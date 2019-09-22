@@ -2,14 +2,14 @@
 
 module MISP
   class Event < Base
-    attr_accessor :id
+    attr_reader :id
     attr_accessor :orgc_id
     attr_accessor :org_id
     attr_accessor :date
     attr_accessor :threat_level_id
     attr_accessor :info
     attr_accessor :published
-    attr_accessor :uuid
+    attr_reader :uuid
     attr_accessor :attribute_count
     attr_accessor :analysis
     attr_accessor :timestamp
@@ -65,7 +65,7 @@ module MISP
     end
 
     def to_h
-      {
+      compact({
         id: id,
         orgc_id: orgc_id,
         org_id: org_id,
@@ -84,15 +84,15 @@ module MISP
         sharing_group_id: sharing_group_id,
         disable_correlation: disable_correlation,
         event_creator_email: event_creator_email,
-        Org: (org ? org.to_h : nil),
-        Orgc: (orgc ? orgc.to_h : nil),
+        Org: org.to_h,
+        Orgc: orgc.to_h,
         SharingGroup: sharing_groups.map(&:to_h),
         Attribute: attributes.map(&:to_h),
         ShadowAttribute: shadow_attributes.map(&:to_h),
         RelatedEvent: related_events.map(&:to_h),
         Galaxy: galaxies.map(&:to_h),
         Tag: tags.map(&:to_h)
-      }.compact
+      })
     end
 
     def get(id)
@@ -169,6 +169,12 @@ module MISP
       tag = Tag.new(symbolize_keys(tag)) unless tag.is_a?(MISP::Tag)
       tags << tag
       self
+    end
+
+    private
+
+    def compact(hash)
+      hash.compact.reject { |_k, v| (v.is_a?(Hash) || v.is_a?(Array)) && v.empty? }
     end
   end
 end

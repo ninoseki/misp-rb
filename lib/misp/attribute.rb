@@ -2,12 +2,12 @@
 
 module MISP
   class Attribute < Base
-    attr_accessor :id
+    attr_reader :id
     attr_accessor :type
     attr_accessor :category
     attr_accessor :to_ids
-    attr_accessor :uuid
-    attr_accessor :event_id
+    attr_reader :uuid
+    attr_reader :event_id
     attr_accessor :distribution
     attr_accessor :timestamp
     attr_accessor :comment
