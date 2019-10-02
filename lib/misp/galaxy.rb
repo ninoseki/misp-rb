@@ -39,7 +39,7 @@ module MISP
     def list
       _get("/galaxies/") do |galaxies|
         galaxies.map do |galaxy|
-          Galaxy.new symbolize_keys(galaxy)
+          Galaxy.new galaxy
         end
       end
     end
@@ -49,7 +49,7 @@ module MISP
     end
 
     def get
-      _get("/galaxies/view/#{id}") { |galaxy| Galaxy.new symbolize_keys(galaxy) }
+      _get("/galaxies/view/#{id}") { |galaxy| Galaxy.new galaxy }
     end
 
     def self.get(id)

@@ -6,6 +6,8 @@ require "uri"
 
 module MISP
   class Base
+    private
+
     def api_endpoint
       @api_endpoint ||= URI(MISP.configuration.api_endpoint)
     end
@@ -14,22 +16,16 @@ module MISP
       @api_key ||= MISP.configuration.api_key
     end
 
-    private
-
     def build_attribute(item:, klass:)
       return nil unless item
 
-      klass.new symbolize_keys(item)
+      klass.new item
     end
 
     def build_plural_attribute(items:, klass:)
       (items || []).map do |item|
-        klass.new symbolize_keys(item)
+        klass.new item
       end
-    end
-
-    def symbolize_keys(hash)
-      hash.map { |k, v| [k.to_sym, v] }.to_h
     end
 
     def class_name
@@ -39,7 +35,7 @@ module MISP
     def normalize_attributes(attributes)
       klass = class_name.to_sym
 
-      attributes.key?(klass) ? symbolize_keys(attributes.dig(klass)) : attributes
+      attributes.key?(klass) ? attributes.dig(klass) : attributes
     end
 
     def wrap(params)
@@ -99,7 +95,7 @@ module MISP
     end
 
     def parse_body(body)
-      JSON.parse body.to_s
+      JSON.parse body.to_s, symbolize_names: true
     rescue JSON::ParserError => _e
       body.to_s
     end

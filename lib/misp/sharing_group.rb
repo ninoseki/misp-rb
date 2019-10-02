@@ -64,7 +64,7 @@ module MISP
       _get("/sharing_groups/") do |res|
         sharing_groups = res.dig("response") || []
         sharing_groups.map do |sharing_group|
-          SharingGroup.new symbolize_keys(sharing_group)
+          SharingGroup.new sharing_group
         end
       end
     end
@@ -74,7 +74,7 @@ module MISP
     end
 
     def create(**attributes)
-      _post("/sharing_groups/add", wrap(attributes)) { |sharing_group| SharingGroup.new symbolize_keys(sharing_group) }
+      _post("/sharing_groups/add", wrap(attributes)) { |sharing_group| SharingGroup.new sharing_group }
     end
 
     def self.create(attributes)

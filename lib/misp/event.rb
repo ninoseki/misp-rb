@@ -96,7 +96,7 @@ module MISP
     end
 
     def get(id)
-      _get("/events/#{id}") { |event| Event.new symbolize_keys(event) }
+      _get("/events/#{id}") { |event| Event.new event }
     end
 
     def self.get(id)
@@ -105,7 +105,7 @@ module MISP
 
     def create(**attrs)
       payload = to_h.merge(attrs)
-      _post("/events/add", wrap(payload)) { |event| Event.new symbolize_keys(event) }
+      _post("/events/add", wrap(payload)) { |event| Event.new event }
     end
 
     def self.create(**attrs)
@@ -123,7 +123,7 @@ module MISP
     def list
       _get("/events/index") do |events|
         events.map do |event|
-          Event.new symbolize_keys(event)
+          Event.new event
         end
       end
     end
@@ -135,7 +135,7 @@ module MISP
     def update(**attrs)
       payload = to_h.merge(attrs)
       payload[:timestamp] = nil
-      _post("/events/#{id}", wrap(payload)) { |event| Event.new symbolize_keys(event) }
+      _post("/events/#{id}", wrap(payload)) { |event| Event.new event }
     end
 
     def self.update(id, **attrs)
@@ -151,7 +151,7 @@ module MISP
 
       _post("/events/restSearch", base.merge(params)) do |json|
         events = json.dig("response") || []
-        events.map { |event| Event.new symbolize_keys(event) }
+        events.map { |event| Event.new event }
       end
     end
 
@@ -160,13 +160,13 @@ module MISP
     end
 
     def add_attribute(attribute)
-      attribute = Attribute.new(symbolize_keys(attribute)) unless attribute.is_a?(Attribute)
+      attribute = Attribute.new(attribute) unless attribute.is_a?(Attribute)
       attributes << attribute
       self
     end
 
     def add_tag(tag)
-      tag = Tag.new(symbolize_keys(tag)) unless tag.is_a?(MISP::Tag)
+      tag = Tag.new(tag) unless tag.is_a?(MISP::Tag)
       tags << tag
       self
     end
