@@ -82,7 +82,7 @@ module MISP
     def list
       _get("/feeds/index") do |feeds|
         feeds.map do |feed|
-          Feed.new symbolize_keys(feed)
+          Feed.new feed
         end
       end
     end
@@ -92,7 +92,7 @@ module MISP
     end
 
     def get
-      _get("/feeds/view/#{id}") { |feed| Feed.new symbolize_keys(feed) }
+      _get("/feeds/view/#{id}") { |feed| Feed.new feed }
     end
 
     def self.get(id)
@@ -100,7 +100,7 @@ module MISP
     end
 
     def create(**attributes)
-      _post("/feeds/add", wrap(attributes)) { |feed| Feed.new symbolize_keys(feed) }
+      _post("/feeds/add", wrap(attributes)) { |feed| Feed.new feed }
     end
 
     def self.create(attributes)

@@ -25,7 +25,7 @@ module MISP
     def list
       _get("/servers/") do |servers|
         servers.map do |server|
-          Server.new symbolize_keys(server)
+          Server.new server
         end
       end
     end

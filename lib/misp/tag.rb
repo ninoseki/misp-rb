@@ -29,7 +29,7 @@ module MISP
     end
 
     def get(id)
-      _get("/tags/view/#{id}") { |json| Tag.new symbolize_keys(json) }
+      _get("/tags/view/#{id}") { |json| Tag.new json }
     end
 
     def self.get(id)
@@ -37,7 +37,7 @@ module MISP
     end
 
     def create(attributes)
-      _post("/tags/add", wrap(attributes)) { |json| Tag.new symbolize_keys(json) }
+      _post("/tags/add", wrap(attributes)) { |json| Tag.new json }
     end
 
     def self.create(attributes)
@@ -54,7 +54,7 @@ module MISP
 
     def update(**attributes)
       payload = to_h.merge(attributes)
-      _post("/tags/edit/#{id}", wrap(payload)) { |json| Tag.new symbolize_keys(json) }
+      _post("/tags/edit/#{id}", wrap(payload)) { |json| Tag.new json }
     end
 
     def self.update(id, **attributes)
@@ -63,7 +63,7 @@ module MISP
 
     def search(**params)
       _post("/tags/search", params) do |tags|
-        tags.map { |tag| Tag.new symbolize_keys(tag) }
+        tags.map { |tag| Tag.new tag }
       end
     end
   end
