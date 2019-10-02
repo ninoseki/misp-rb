@@ -6,6 +6,8 @@ require "uri"
 
 module MISP
   class Base
+    private
+
     def api_endpoint
       @api_endpoint ||= URI(MISP.configuration.api_endpoint)
     end
@@ -13,8 +15,6 @@ module MISP
     def api_key
       @api_key ||= MISP.configuration.api_key
     end
-
-    private
 
     def build_attribute(item:, klass:)
       return nil unless item
