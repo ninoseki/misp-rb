@@ -110,6 +110,14 @@ event.tags << MISP::Tag.new(name: "my event-level tag")
 event.create
 ```
 
+### Search for events / attributes
+
+```ruby
+events = MISP::Event.search(info: "test")
+
+attributes = MISP::Attribute.search(type: "ip-dst")
+```
+
 ## Acknowledgement
 
 The implementation design of this gem is highly influenced by [FloatingGhost/mispex](https://github.com/FloatingGhost/mispex).
