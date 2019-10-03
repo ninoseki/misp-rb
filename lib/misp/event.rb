@@ -99,25 +99,13 @@ module MISP
       _get("/events/#{id}") { |event| Event.new event }
     end
 
-    def self.get(id)
-      new.get id
-    end
-
     def create(**attrs)
       payload = to_h.merge(attrs)
       _post("/events/add", wrap(payload)) { |event| Event.new event }
     end
 
-    def self.create(**attrs)
-      new.create attrs
-    end
-
     def delete
       _delete("/events/#{id}") { |json| json }
-    end
-
-    def self.delete(id)
-      new(id: id).delete
     end
 
     def list
@@ -128,18 +116,10 @@ module MISP
       end
     end
 
-    def self.list
-      new.list
-    end
-
     def update(**attrs)
       payload = to_h.merge(attrs)
       payload[:timestamp] = nil
       _post("/events/#{id}", wrap(payload)) { |event| Event.new event }
-    end
-
-    def self.update(id, **attrs)
-      new(id: id).update attrs
     end
 
     def search(**params)
@@ -155,10 +135,6 @@ module MISP
       end
     end
 
-    def self.search(**params)
-      new.search params
-    end
-
     def add_attribute(attribute)
       attribute = Attribute.new(attribute) unless attribute.is_a?(Attribute)
       attributes << attribute
@@ -169,6 +145,32 @@ module MISP
       tag = Tag.new(tag) unless tag.is_a?(MISP::Tag)
       tags << tag
       self
+    end
+
+    class << self
+      def get(id)
+        new.get id
+      end
+
+      def create(**attrs)
+        new.create attrs
+      end
+
+      def delete(id)
+        new(id: id).delete
+      end
+
+      def list
+        new.list
+      end
+
+      def update(id, **attrs)
+        new(id: id).update attrs
+      end
+
+      def search(**params)
+        new.search params
+      end
     end
 
     private

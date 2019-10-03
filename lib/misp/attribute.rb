@@ -70,24 +70,12 @@ module MISP
       _get("/attributes/#{id}") { |attribute| Attribute.new attribute }
     end
 
-    def self.get(id)
-      new(id: id).get
-    end
-
     def delete
       _post("/attributes/delete/#{id}") { |json| json }
     end
 
-    def self.delete(id)
-      new(id: id).delete
-    end
-
     def create(event_id)
       _post("/attributes/add/#{event_id}", wrap(to_h)) { |attribute| Attribute.new attribute }
-    end
-
-    def self.create(event_id, **attributes)
-      new(attributes).create(event_id)
     end
 
     def update(**attrs)
@@ -109,10 +97,6 @@ module MISP
       end
     end
 
-    def self.search(**params)
-      new.search params
-    end
-
     def add_tag(tag)
       tag = Tag.new(tag) unless tag.is_a?(MISP::Tag)
       payload = { uuid: uuid, tag: tag.name }
@@ -123,6 +107,24 @@ module MISP
       tag = Tag.new(tag) unless tag.is_a?(MISP::Tag)
       payload = { uuid: uuid, tag: tag.name }
       _post("/tags/removeTagFromObject", payload) { |json| json }
+    end
+
+    class << self
+      def get(id)
+        new(id: id).get
+      end
+
+      def delete(id)
+        new(id: id).delete
+      end
+
+      def create(event_id, **attributes)
+        new(attributes).create(event_id)
+      end
+
+      def search(**params)
+        new.search params
+      end
     end
   end
 end

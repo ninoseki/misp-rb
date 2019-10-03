@@ -69,16 +69,18 @@ module MISP
       end
     end
 
-    def self.list
-      new.list
-    end
-
     def create(**attributes)
       _post("/sharing_groups/add", wrap(attributes)) { |sharing_group| SharingGroup.new sharing_group }
     end
 
-    def self.create(attributes)
-      new.create attributes
+    class << self
+      def list
+        new.list
+      end
+
+      def create(attributes)
+        new.create attributes
+      end
     end
   end
 end
