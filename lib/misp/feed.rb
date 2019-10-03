@@ -2,27 +2,49 @@
 
 module MISP
   class Feed < Base
+    # @return [String]
     attr_reader :id
+    # @return [String]
     attr_reader :name
+    # @return [String]
     attr_reader :provider
+    # @return [String]
     attr_reader :url
+    # @return [String]
     attr_reader :rules
+    # @return [Boolean]
     attr_reader :enabled
+    # @return [String]
     attr_reader :distribution
+    # @return [String]
     attr_reader :sharing_group_id
+    # @return [String]
     attr_reader :tag_id
+    # @return [String]
     attr_reader :default
+    # @return [String]
     attr_reader :source_format
+    # @return [Boolean]
     attr_reader :fixed_event
+    # @return [Boolean]
     attr_reader :delta_merge
+    # @return [String]
     attr_reader :event_id
+    # @return [String]
     attr_reader :publish
+    # @return [String]
     attr_reader :override_ids
+    # @return [String]
     attr_reader :settings
+    # @return [String]
     attr_reader :input_source
+    # @return [Boolean]
     attr_reader :delete_local_file
+    # @return [Boolean]
     attr_reader :lookup_visible
+    # @return [String]
     attr_reader :headers
+    # @return [Boolean]
     attr_reader :caching_enabled
 
     def initialize(**attributes)
@@ -52,6 +74,11 @@ module MISP
       @caching_enabled = attributes.dig(:caching_enabled) || true
     end
 
+    #
+    # Returns a hash representation of the attribute data.
+    #
+    # @return [Hash]
+    #
     def to_h
       {
         id: id,
@@ -79,6 +106,11 @@ module MISP
       }.compact
     end
 
+    #
+    # List feeds
+    #
+    # @return [Array<MISP::Feed>]
+    #
     def list
       _get("/feeds/index") do |feeds|
         feeds.map do |feed|
@@ -87,10 +119,22 @@ module MISP
       end
     end
 
+    #
+    # Create a feed
+    #
+    # @return [MISP::Feed]
+    #
     def get
       _get("/feeds/view/#{id}") { |feed| Feed.new feed }
     end
 
+    #
+    # Create a feed
+    #
+    # @param [Hash] **attributes attributes
+    #
+    # @return [MIPS::Feed]
+    #
     def create(**attributes)
       _post("/feeds/add", wrap(attributes)) { |feed| Feed.new feed }
     end
@@ -104,7 +148,7 @@ module MISP
         new(id: id).get
       end
 
-      def create(attributes)
+      def create(**attributes)
         new.create attributes
       end
     end

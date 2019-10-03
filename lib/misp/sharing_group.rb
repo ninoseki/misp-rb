@@ -1,20 +1,41 @@
 # frozen_string_literal: true
 
 module MISP
-  class SharingGroup < Server
+  class SharingGroup < Base
+    # @return [String]
     attr_reader :id
+    # @return [String]
     attr_reader :name
+    # @return [String]
     attr_reader :releasability
+    # @return [String]
     attr_reader :description
+    # @return [String]
     attr_reader :uuid
+    # @return [String]
     attr_reader :organisation_uuid
+    # @return [String]
     attr_reader :org_id
+    # @return [String]
     attr_reader :sync_user_id
+    # @return [Boolean]
     attr_reader :active
+    # @return [String]
     attr_reader :created
+    # @return [String]
     attr_reader :modified
+    # @return [Boolean]
     attr_reader :local
+    # @return [Boolean]
     attr_reader :roaming
+
+    # @return [MISP::Org, nil]
+    attr_reader :organization
+
+    # @return [Array<MISP::SharingGroupOrg>]
+    attr_reader :sharing_group_orgs
+    # @return [Array<MISP::SharingGroupServer>]
+    attr_reader :sharing_group_servers
 
     def initialize(**attributes)
       attributes = normalize_attributes(attributes)
@@ -33,12 +54,17 @@ module MISP
       @local = attributes.dig(:local)
       @roaming = attributes.dig(:roaming)
 
-      @_organisation = attributes.dig(:Organisation)
+      @organisation = build_attribute(item: attributes.dig(:Organization), klass: Org)
 
       @sharing_group_orgs = build_plural_attribute(items: attributes.dig(:SharingGroupOrg), klass: SharingGroupOrg)
       @sharing_group_servers = build_plural_attribute(items: attributes.dig(:SharingGroupServer), klass: SharingGroupServer)
     end
 
+    #
+    # Returns a hash representation of the attribute data.
+    #
+    # @return [Hash]
+    #
     def to_h
       {
         id: id,
@@ -60,15 +86,27 @@ module MISP
       }.compact
     end
 
+    #
+    # List sharing groups
+    #
+    # @return [Array<MISP::SharingGroup>]
+    #
     def list
       _get("/sharing_groups/") do |res|
-        sharing_groups = res.dig("response") || []
+        sharing_groups = res.dig(:response) || []
         sharing_groups.map do |sharing_group|
           SharingGroup.new sharing_group
         end
       end
     end
 
+    #
+    # Create a sharing group
+    #
+    # @param [Hash] **attributes attributes
+    #
+    # @return [MISP::SharingGroup]
+    #
     def create(**attributes)
       _post("/sharing_groups/add", wrap(attributes)) { |sharing_group| SharingGroup.new sharing_group }
     end
@@ -78,7 +116,7 @@ module MISP
         new.list
       end
 
-      def create(attributes)
+      def create(**attributes)
         new.create attributes
       end
     end

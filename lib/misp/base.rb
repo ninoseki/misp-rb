@@ -8,26 +8,57 @@ module MISP
   class Base
     private
 
+    #
+    # API endpoint
+    #
+    # @return [URI]
+    #
     def api_endpoint
       @api_endpoint ||= URI(MISP.configuration.api_endpoint)
     end
 
+    #
+    # API key
+    #
+    # @return [String]
+    #
     def api_key
       @api_key ||= MISP.configuration.api_key
     end
 
+    #
+    # Build an instance of a class
+    #
+    # @param [Hash] item
+    # @param [Class] klass
+    #
+    # @return [Class]
+    #
     def build_attribute(item:, klass:)
       return nil unless item
 
       klass.new item
     end
 
+    #
+    # Build an array of an instance of a class
+    #
+    # @param [Array<Hash>] items
+    # @param [Class] klass
+    #
+    # @return [Arra<Class>]
+    #
     def build_plural_attribute(items:, klass:)
       (items || []).map do |item|
         klass.new item
       end
     end
 
+    #
+    # a name of the class
+    #
+    # @return [String]
+    #
     def class_name
       self.class.to_s.split("::").last.to_s
     end

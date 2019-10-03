@@ -19,21 +19,21 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 20 Sep 2019 23:07:28 GMT
+      - Thu, 03 Oct 2019 04:59:27 GMT
       Server:
       - Apache/2.4.29 (Ubuntu)
       Set-Cookie:
-      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=m036vjhhum66p4qtvs2hgl85aa; expires=Sat,
-        21-Sep-2019 00:07:28 GMT; Max-Age=3600; path=/; HttpOnly
-      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=m036vjhhum66p4qtvs2hgl85aa; expires=Sat,
-        21-Sep-2019 00:07:28 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d8089d3-9f14-4c53-9d2c-72f066e1c200=e3kabvi215grm4v56bi0mla8a2; expires=Thu,
+        03-Oct-2019 05:59:27 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d8089d3-9f14-4c53-9d2c-72f066e1c200=e3kabvi215grm4v56bi0mla8a2; expires=Thu,
+        03-Oct-2019 05:59:27 GMT; Max-Age=3600; path=/; HttpOnly
       Content-Length:
-      - '540'
+      - '541'
       Content-Type:
       - application/json; charset=UTF-8
     body:
       encoding: UTF-8
-      string: '{"response":[{"SharingGroup":{"id":"1","uuid":"5d855b86-cd50-4511-ae27-19af0a00020f","name":"test","description":"test","releasability":"test","local":true,"active":true},"Organisation":{"id":"1","name":"ORGNAME","uuid":"5d84de75-ddd0-4b00-865a-19b521b86aea"},"SharingGroupOrg":[{"id":"1","sharing_group_id":"1","org_id":"1","extend":true,"Organisation":{"name":"ORGNAME","id":"1","uuid":"5d84de75-ddd0-4b00-865a-19b521b86aea"}}],"SharingGroupServer":[{"all_orgs":true,"server_id":"0","sharing_group_id":"1","Server":[]}],"editable":true}]}'
+      string: '{"response":[{"SharingGroup":{"id":"1","uuid":"5d957fda-bd18-4b7d-8013-45a80a00020f","name":"test","description":"test","releasability":"test","local":true,"active":true},"Organisation":{"id":"1","name":"ORGNAME","uuid":"5d8089d3-2e0c-4341-b03a-72f866e1c200"},"SharingGroupOrg":[{"id":"1","sharing_group_id":"1","org_id":"1","extend":true,"Organisation":{"name":"ORGNAME","id":"1","uuid":"5d8089d3-2e0c-4341-b03a-72f866e1c200"}}],"SharingGroupServer":[{"all_orgs":false,"server_id":"0","sharing_group_id":"1","Server":[]}],"editable":true}]}'
     http_version: 
-  recorded_at: Fri, 20 Sep 2019 23:07:29 GMT
+  recorded_at: Thu, 03 Oct 2019 04:59:27 GMT
 recorded_with: VCR 5.0.0
