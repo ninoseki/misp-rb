@@ -87,24 +87,26 @@ module MISP
       end
     end
 
-    def self.list
-      new.list
-    end
-
     def get
       _get("/feeds/view/#{id}") { |feed| Feed.new feed }
-    end
-
-    def self.get(id)
-      new(id: id).get
     end
 
     def create(**attributes)
       _post("/feeds/add", wrap(attributes)) { |feed| Feed.new feed }
     end
 
-    def self.create(attributes)
-      new.create attributes
+    class << self
+      def list
+        new.list
+      end
+
+      def get(id)
+        new(id: id).get
+      end
+
+      def create(attributes)
+        new.create attributes
+      end
     end
   end
 end

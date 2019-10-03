@@ -44,16 +44,18 @@ module MISP
       end
     end
 
-    def self.list
-      new.list
-    end
-
     def get
       _get("/galaxies/view/#{id}") { |galaxy| Galaxy.new galaxy }
     end
 
-    def self.get(id)
-      new(id: id).get
+    class << self
+      def list
+        new.list
+      end
+
+      def get(id)
+        new(id: id).get
+      end
     end
   end
 end

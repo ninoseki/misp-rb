@@ -32,24 +32,12 @@ module MISP
       _get("/tags/view/#{id}") { |json| Tag.new json }
     end
 
-    def self.get(id)
-      new.get id
-    end
-
     def create(attributes)
       _post("/tags/add", wrap(attributes)) { |json| Tag.new json }
     end
 
-    def self.create(attributes)
-      new.create attributes
-    end
-
     def delete
       _post("/tags/delete/#{id}") { |json| json }
-    end
-
-    def self.delete(id)
-      Tag.new(id: id).delete
     end
 
     def update(**attributes)
@@ -57,13 +45,27 @@ module MISP
       _post("/tags/edit/#{id}", wrap(payload)) { |json| Tag.new json }
     end
 
-    def self.update(id, **attributes)
-      Tag.new(id: id).update attributes
-    end
-
     def search(**params)
       _post("/tags/search", params) do |tags|
         tags.map { |tag| Tag.new tag }
+      end
+    end
+
+    class << self
+      def get(id)
+        new.get id
+      end
+
+      def create(attributes)
+        new.create attributes
+      end
+
+      def delete(id)
+        Tag.new(id: id).delete
+      end
+
+      def update(id, **attributes)
+        Tag.new(id: id).update attributes
       end
     end
   end

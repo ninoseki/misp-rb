@@ -30,8 +30,10 @@ module MISP
       end
     end
 
-    def self.list
-      new.list
+    class << self
+      def list
+        new.list
+      end
     end
   end
 end
