@@ -2,8 +2,11 @@
 
 module MISP
   class Server < Base
+    # @return [String]
     attr_reader :id
+    # @return [String]
     attr_reader :url
+    # @return [String]
     attr_reader :name
 
     def initialize(**attributes)
@@ -14,6 +17,11 @@ module MISP
       @name = attributes.dig(:name)
     end
 
+    #
+    # Returns a hash representation of the attribute data.
+    #
+    # @return [Hash]
+    #
     def to_h
       {
         id: id,
@@ -22,6 +30,11 @@ module MISP
       }.compact
     end
 
+    #
+    # List servers
+    #
+    # @return [Array<MISP::Server>]
+    #
     def list
       _get("/servers/") do |servers|
         servers.map do |server|

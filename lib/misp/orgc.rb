@@ -2,8 +2,11 @@
 
 module MISP
   class Orgc < Base
+    # @return [String]
     attr_reader :id
+    # @return [String]
     attr_reader :name
+    # @return [String]
     attr_reader :uuid
 
     def initialize(**attributes)
@@ -14,6 +17,11 @@ module MISP
       @uuid = attributes.dig(:uuid)
     end
 
+    #
+    # Returns a hash representation of the attribute data.
+    #
+    # @return [Hash]
+    #
     def to_h
       {
         id: id,

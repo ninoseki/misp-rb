@@ -2,23 +2,40 @@
 
 module MISP
   class Attribute < Base
+    # @return [String]
     attr_reader :id
+    # @return [String]
     attr_accessor :type
+    # @return [String]
     attr_accessor :category
+    # @return [Boolean]
     attr_accessor :to_ids
+    # @return [String]
     attr_reader :uuid
+    # @return [String]
     attr_reader :event_id
+    # @return [String]
     attr_accessor :distribution
+    # @return [String]
     attr_accessor :timestamp
+    # @return [String]
     attr_accessor :comment
+    # @return [String]
     attr_accessor :sharing_group_id
+    # @return [Boolean]
     attr_accessor :deleted
+    # @return [Boolean]
     attr_accessor :disable_correlation
+    # @return [String]
     attr_accessor :value
+    # @return [String]
     attr_accessor :data
 
+    # @return [Array<MISP::SharingGroup>]
     attr_accessor :sharing_groups
+    # @return [Array<MISP::Attribute>]
     attr_accessor :shadow_attributes
+    # @return [Array<MISP::Tag>]
     attr_accessor :tags
 
     def initialize(**attributes)
@@ -44,6 +61,11 @@ module MISP
       @tags = build_plural_attribute(items: attributes.dig(:Tag), klass: Tag)
     end
 
+    #
+    # Returns a hash representation of the attribute data.
+    #
+    # @return [Hash]
+    #
     def to_h
       {
         id: id,
@@ -66,24 +88,53 @@ module MISP
       }.compact
     end
 
+    #
+    # Get an attribute
+    #
+    # @return [MISP::Attribute]
+    #
     def get
       _get("/attributes/#{id}") { |attribute| Attribute.new attribute }
     end
 
+    #
+    # Delete an attribute
+    #
+    # @return [Hash]
+    #
     def delete
       _post("/attributes/delete/#{id}") { |json| json }
     end
 
+    #
+    # Create an attribute
+    #
+    # @return [MISP::Attribute]
+    #
     def create(event_id)
       _post("/attributes/add/#{event_id}", wrap(to_h)) { |attribute| Attribute.new attribute }
     end
 
+    #
+    # Update an attribute
+    #
+    # @param [Hash] **attrs attributes
+    #
+    # @return [MISP::Attribute]
+    #
     def update(**attrs)
       payload = to_h.merge(attrs)
       payload[:timestamp] = nil
       _post("/attributes/edit/#{id}", wrap(payload)) { |json| Attribute.new json.dig(:response, :Attribute) }
     end
 
+    #
+    # Search for attributes
+    #
+    # @param [Hash] **params parameters
+    #
+    # @return [Array<MISP::Attributes>]
+    #
     def search(**params)
       base = {
         returnFormat: "json",
@@ -92,17 +143,31 @@ module MISP
       }
 
       _post("/attributes/restSearch", base.merge(params)) do |json|
-        attributes = json.dig("response", "Attribute") || []
+        attributes = json.dig(:response, :Attribute) || []
         attributes.map { |attribute| Attribute.new attribute }
       end
     end
 
+    #
+    # Add a tag to an attribute
+    #
+    # @param [MISP::Tag, Hash] tag
+    #
+    # @return [MISP::Tag]
+    #
     def add_tag(tag)
       tag = Tag.new(tag) unless tag.is_a?(MISP::Tag)
       payload = { uuid: uuid, tag: tag.name }
       _post("/tags/attachTagToObject", payload) { |json| Tag.new json }
     end
 
+    #
+    # Remove a tag from an attribute
+    #
+    # @param [MISP::Tag, Hash] tag
+    #
+    # @return [Hash]
+    #
     def remove_tag(tag)
       tag = Tag.new(tag) unless tag.is_a?(MISP::Tag)
       payload = { uuid: uuid, tag: tag.name }

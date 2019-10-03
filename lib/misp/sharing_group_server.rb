@@ -1,12 +1,17 @@
 # frozen_string_literal: true
 
 module MISP
-  class SharingGroupServer < Server
+  class SharingGroupServer < Base
+    # @return [String]
     attr_reader :id
+    # @return [String]
     attr_reader :sharing_group_id
+    # @return [String]
     attr_reader :server_id
+    # @return [Boolean]
     attr_reader :all_orgs
 
+    # @return [Array<MISP::Server>]
     attr_reader :servers
 
     def initialize(**attributes)
@@ -20,6 +25,11 @@ module MISP
       @servers = build_plural_attribute(items: attributes.dig(:Server), klass: Server)
     end
 
+    #
+    # Returns a hash representation of the attribute data.
+    #
+    # @return [Hash]
+    #
     def to_h
       {
         id: id,

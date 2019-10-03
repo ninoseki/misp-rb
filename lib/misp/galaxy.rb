@@ -2,13 +2,20 @@
 
 module MISP
   class Galaxy < Base
+    # @return [String]
     attr_reader :id
+    # @return [String]
     attr_reader :uuid
+    # @return [String]
     attr_reader :name
+    # @return [String]
     attr_reader :type
+    # @return [String]
     attr_reader :description
+    # @return [String]
     attr_reader :version
 
+    # @return [Array<MISP::GalaxyCluster>]
     attr_reader :galaxy_clusters
 
     def initialize(**attributes)
@@ -24,6 +31,11 @@ module MISP
       @galaxy_clusters = build_plural_attribute(items: attributes.dig(:GalaxyCluster), klass: GalaxyCluster)
     end
 
+    #
+    # Returns a hash representation of the attribute data.
+    #
+    # @return [Hash]
+    #
     def to_h
       {
         id: id,
@@ -36,6 +48,11 @@ module MISP
       }.compact
     end
 
+    #
+    # List galaxies
+    #
+    # @return [Array<Galaxy>]
+    #
     def list
       _get("/galaxies/") do |galaxies|
         galaxies.map do |galaxy|
@@ -44,6 +61,11 @@ module MISP
       end
     end
 
+    #
+    # Get a galaxy
+    #
+    # @return [MISP::Galaxy]
+    #
     def get
       _get("/galaxies/view/#{id}") { |galaxy| Galaxy.new galaxy }
     end

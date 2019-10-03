@@ -2,16 +2,27 @@
 
 module MISP
   class GalaxyCluster < Base
+    # @return [String]
     attr_reader :id
+    # @return [String]
     attr_reader :uuid
+    # @return [String]
     attr_reader :type
+    # @return [String]
     attr_reader :value
+    # @return [String]
     attr_reader :tag_name
+    # @return [String]
     attr_reader :description
+    # @return [String]
     attr_reader :galaxy_id
+    # @return [String]
     attr_reader :source
+    # @return [Array<String>]
     attr_reader :authors
+    # @return [String]
     attr_reader :tag_id
+    # @return [Hash]
     attr_reader :meta
 
     def initialize(**attributes)
@@ -30,6 +41,11 @@ module MISP
       @meta = attributes.dig(:meta)
     end
 
+    #
+    # Returns a hash representation of the attribute data.
+    #
+    # @return [Hash]
+    #
     def to_h
       {
         id: id,
