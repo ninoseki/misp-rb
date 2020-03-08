@@ -37,7 +37,7 @@ module MISP
     def build_attribute(item:, klass:)
       return nil unless item
 
-      klass.new item
+      klass.new(**item)
     end
 
     #
@@ -50,7 +50,7 @@ module MISP
     #
     def build_plural_attribute(items:, klass:)
       (items || []).map do |item|
-        klass.new item
+        klass.new(**item)
       end
     end
 
@@ -63,7 +63,7 @@ module MISP
       self.class.to_s.split("::").last.to_s
     end
 
-    def normalize_attributes(attributes)
+    def normalize_attributes(**attributes)
       klass = class_name.to_sym
 
       attributes.key?(klass) ? attributes.dig(klass) : attributes

@@ -38,7 +38,7 @@ module MISP
     attr_reader :sharing_group_servers
 
     def initialize(**attributes)
-      attributes = normalize_attributes(attributes)
+      attributes = normalize_attributes(**attributes)
 
       @id = attributes.dig(:id)
       @name = attributes.dig(:name) || "default name"
@@ -95,7 +95,7 @@ module MISP
       _get("/sharing_groups/") do |res|
         sharing_groups = res.dig(:response) || []
         sharing_groups.map do |sharing_group|
-          SharingGroup.new sharing_group
+          SharingGroup.new **sharing_group
         end
       end
     end

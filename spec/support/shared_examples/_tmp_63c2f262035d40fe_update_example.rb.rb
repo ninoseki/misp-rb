@@ -7,7 +7,7 @@ RSpec.shared_examples "update example" do
     let(:new_one) { subject.create(**attributes) }
 
     it do
-      res = new_one.update(**attributes)
+      res = new_one.update(attributes)
       expect(res).to be_a(described_class)
     end
   end

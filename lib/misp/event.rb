@@ -58,7 +58,7 @@ module MISP
     attr_accessor :tags
 
     def initialize(**attrs)
-      attrs = normalize_attributes(attrs)
+      attrs = normalize_attributes(**attrs)
 
       @id = attrs.dig(:id)
       @orgc_id = attrs.dig(:orgc_id)
@@ -132,7 +132,7 @@ module MISP
     # @return [MISP::Event]
     #
     def get(id)
-      _get("/events/#{id}") { |event| Event.new event }
+      _get("/events/#{id}") { |event| Event.new **event }
     end
 
     #
@@ -144,7 +144,7 @@ module MISP
     #
     def create(**attrs)
       payload = to_h.merge(attrs)
-      _post("/events/add", wrap(payload)) { |event| Event.new event }
+      _post("/events/add", wrap(payload)) { |event| Event.new **event }
     end
 
     #
@@ -164,7 +164,7 @@ module MISP
     def list
       _get("/events/index") do |events|
         events.map do |event|
-          Event.new event
+          Event.new **event
         end
       end
     end
@@ -175,9 +175,9 @@ module MISP
     # @return [MISP::Event]
     #
     def update(**attrs)
-      payload = to_h.merge(attrs)
+      payload = to_h.merge(**attrs)
       payload[:timestamp] = nil
-      _post("/events/#{id}", wrap(payload)) { |event| Event.new event }
+      _post("/events/#{id}", wrap(payload)) { |event| Event.new(**event) }
     end
 
     #
@@ -194,7 +194,7 @@ module MISP
 
       _post("/events/restSearch", base.merge(params)) do |json|
         events = json.dig(:response) || []
-        events.map { |event| Event.new event }
+        events.map { |event| Event.new(**event) }
       end
     end
 
@@ -226,7 +226,7 @@ module MISP
       end
 
       def create(**attrs)
-        new.create attrs
+        new.create **attrs
       end
 
       def delete(id)
@@ -238,11 +238,11 @@ module MISP
       end
 
       def update(id, **attrs)
-        new(id: id).update attrs
+        new(id: id).update(**attrs)
       end
 
       def search(**params)
-        new.search params
+        new.search(**params)
       end
     end
 

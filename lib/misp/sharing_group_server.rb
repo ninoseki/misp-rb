@@ -15,7 +15,7 @@ module MISP
     attr_reader :servers
 
     def initialize(**attributes)
-      attributes = normalize_attributes(attributes)
+      attributes = normalize_attributes(**attributes)
 
       @id = attributes.dig(:id)
       @sharing_group_id = attributes.dig(:sharing_group_id)

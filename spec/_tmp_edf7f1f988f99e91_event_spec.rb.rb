@@ -16,7 +16,7 @@ RSpec.describe MISP::Event, :vcr do
   include_examples "list example"
 
   describe "#to_h" do
-    let(:event) { subject.new(**attributes) }
+    let(:event) { subject.new attributes }
 
     it do
       expect(event.to_h).to be_a(Hash)
@@ -25,12 +25,12 @@ RSpec.describe MISP::Event, :vcr do
 
   describe ".search" do
     it do
-      expect(subject.search(**attributes)).to be_an(Array)
+      expect(subject.search(attributes)).to be_an(Array)
     end
   end
 
   describe "#add_attribute" do
-    let(:event) { subject.create(**attributes) }
+    let(:event) { subject.create **attributes }
     let(:attribute) {
       MISP::Attribute.new(value: "8.8.8.8", type: "ip-dst")
     }
@@ -41,7 +41,7 @@ RSpec.describe MISP::Event, :vcr do
   end
 
   describe "#add_tag" do
-    let(:event) { subject.create(**attributes) }
+    let(:event) { subject.create attributes }
     let(:tag) {
       MISP::Tag.new(name: "test")
     }

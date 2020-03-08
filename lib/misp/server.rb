@@ -10,7 +10,7 @@ module MISP
     attr_reader :name
 
     def initialize(**attributes)
-      attributes = normalize_attributes(attributes)
+      attributes = normalize_attributes(**attributes)
 
       @id = attributes.dig(:id)
       @url = attributes.dig(:url)
