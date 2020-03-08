@@ -114,7 +114,7 @@ module MISP
     def list
       _get("/feeds/index") do |feeds|
         feeds.map do |feed|
-          Feed.new **feed
+          Feed.new(**feed)
         end
       end
     end

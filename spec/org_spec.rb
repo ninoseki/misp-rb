@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe MISP::Org do
-  subject { described_class.new **attributes }
+  subject { described_class.new(**attributes) }
 
   let(:id) { 1 }
   let(:name) { "test" }

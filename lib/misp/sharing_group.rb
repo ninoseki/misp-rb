@@ -95,7 +95,7 @@ module MISP
       _get("/sharing_groups/") do |res|
         sharing_groups = res.dig(:response) || []
         sharing_groups.map do |sharing_group|
-          SharingGroup.new **sharing_group
+          SharingGroup.new(**sharing_group)
         end
       end
     end

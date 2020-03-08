@@ -112,7 +112,7 @@ module MISP
     # @return [MISP::Attribute]
     #
     def create(event_id)
-      _post("/attributes/add/#{event_id}", wrap(to_h)) { |attribute| Attribute.new **attribute }
+      _post("/attributes/add/#{event_id}", wrap(to_h)) { |attribute| Attribute.new(**attribute) }
     end
 
     #
@@ -125,7 +125,7 @@ module MISP
     def update(**attrs)
       payload = to_h.merge(attrs)
       payload[:timestamp] = nil
-      _post("/attributes/edit/#{id}", wrap(payload)) { |json| Attribute.new **json.dig(:response, :Attribute) }
+      _post("/attributes/edit/#{id}", wrap(payload)) { |json| Attribute.new(**json.dig(:response, :Attribute)) }
     end
 
     #
@@ -158,7 +158,7 @@ module MISP
     def add_tag(tag)
       tag = Tag.new(tag) unless tag.is_a?(MISP::Tag)
       payload = { uuid: uuid, tag: tag.name }
-      _post("/tags/attachTagToObject", payload) { |json| Tag.new **json }
+      _post("/tags/attachTagToObject", payload) { |json| Tag.new(**json) }
     end
 
     #

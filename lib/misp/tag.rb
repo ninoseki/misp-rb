@@ -44,7 +44,7 @@ module MISP
     # @return [MISP::Tag]
     #
     def get
-      _get("/tags/view/#{id}") { |json| Tag.new **json }
+      _get("/tags/view/#{id}") { |json| Tag.new(**json) }
     end
 
     #
@@ -76,7 +76,7 @@ module MISP
     #
     def update(**attributes)
       payload = to_h.merge(attributes)
-      _post("/tags/edit/#{id}", wrap(payload)) { |json| Tag.new **json }
+      _post("/tags/edit/#{id}", wrap(payload)) { |json| Tag.new(**json) }
     end
 
     #
