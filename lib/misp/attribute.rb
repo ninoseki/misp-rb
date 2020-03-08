@@ -39,7 +39,7 @@ module MISP
     attr_accessor :tags
 
     def initialize(**attributes)
-      attributes = normalize_attributes(attributes)
+      attributes = normalize_attributes(**attributes)
 
       @id = attributes.dig(:id)
       @type = attributes.dig(:type)
@@ -112,7 +112,7 @@ module MISP
     # @return [MISP::Attribute]
     #
     def create(event_id)
-      _post("/attributes/add/#{event_id}", wrap(to_h)) { |attribute| Attribute.new attribute }
+      _post("/attributes/add/#{event_id}", wrap(to_h)) { |attribute| Attribute.new(**attribute) }
     end
 
     #
@@ -125,7 +125,7 @@ module MISP
     def update(**attrs)
       payload = to_h.merge(attrs)
       payload[:timestamp] = nil
-      _post("/attributes/edit/#{id}", wrap(payload)) { |json| Attribute.new json.dig(:response, :Attribute) }
+      _post("/attributes/edit/#{id}", wrap(payload)) { |json| Attribute.new(**json.dig(:response, :Attribute)) }
     end
 
     #
@@ -144,7 +144,7 @@ module MISP
 
       _post("/attributes/restSearch", base.merge(params)) do |json|
         attributes = json.dig(:response, :Attribute) || []
-        attributes.map { |attribute| Attribute.new attribute }
+        attributes.map { |attribute| Attribute.new(**attribute) }
       end
     end
 
@@ -158,7 +158,7 @@ module MISP
     def add_tag(tag)
       tag = Tag.new(tag) unless tag.is_a?(MISP::Tag)
       payload = { uuid: uuid, tag: tag.name }
-      _post("/tags/attachTagToObject", payload) { |json| Tag.new json }
+      _post("/tags/attachTagToObject", payload) { |json| Tag.new(**json) }
     end
 
     #
@@ -184,11 +184,11 @@ module MISP
       end
 
       def create(event_id, **attributes)
-        new(attributes).create(event_id)
+        new(**attributes).create(event_id)
       end
 
       def search(**params)
-        new.search params
+        new.search(**params)
       end
     end
   end

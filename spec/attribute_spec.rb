@@ -14,19 +14,19 @@ RSpec.describe MISP::Attribute, :vcr do
 
   describe ".create" do
     it do
-      expect(subject.create(event.id, attributes)).to be_a(described_class)
+      expect(subject.create(event.id, **attributes)).to be_a(described_class)
     end
   end
 
   describe ".search" do
     it do
-      expect(subject.search(attributes)).to be_an(Array)
+      expect(subject.search(**attributes)).to be_an(Array)
     end
   end
 
   describe "#add_tag" do
     let(:tag_name) { "test tag" }
-    let(:attribute) { subject.create(event.id, attributes) }
+    let(:attribute) { subject.create(event.id, **attributes) }
     let(:tag) { MISP::Tag.create(name: tag_name) }
 
     it do
@@ -36,7 +36,7 @@ RSpec.describe MISP::Attribute, :vcr do
 
   describe "#remove_tag" do
     let(:tag_name) { "test tag" }
-    let(:attribute) { subject.create(event.id, attributes) }
+    let(:attribute) { subject.create(event.id, **attributes) }
     let(:tag) { MISP::Tag.create(name: tag_name) }
 
     it do
@@ -46,7 +46,7 @@ RSpec.describe MISP::Attribute, :vcr do
   end
 
   describe "#update" do
-    let(:attribute) { subject.create(event.id, attributes) }
+    let(:attribute) { subject.create(event.id, **attributes) }
 
     it do
       expect(attribute.update(value: "1.1.1.1")).to be_an(described_class)

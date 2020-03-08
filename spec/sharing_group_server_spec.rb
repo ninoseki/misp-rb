@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe MISP::SharingGroupServer do
-  subject { described_class.new attributes }
+  subject { described_class.new(**attributes) }
 
   let(:attributes) {
     { all_orgs: true, server_id: "0", sharing_group_id: "1", Server: [] }

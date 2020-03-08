@@ -10,7 +10,7 @@ module MISP
     attr_reader :uuid
 
     def initialize(**attributes)
-      attributes = normalize_attributes(attributes)
+      attributes = normalize_attributes(**attributes)
 
       @id = attributes.dig(:id)
       @name = attributes.dig(:name)

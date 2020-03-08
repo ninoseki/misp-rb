@@ -14,7 +14,7 @@ module MISP
     attr_accessor :hide_tag
 
     def initialize(**attributes)
-      attributes = normalize_attributes(attributes)
+      attributes = normalize_attributes(**attributes)
 
       @id = attributes.dig(:id)
       @name = attributes.dig(:name)
@@ -44,7 +44,7 @@ module MISP
     # @return [MISP::Tag]
     #
     def get
-      _get("/tags/view/#{id}") { |json| Tag.new json }
+      _get("/tags/view/#{id}") { |json| Tag.new(**json) }
     end
 
     #
@@ -55,7 +55,7 @@ module MISP
     # @return [MISP::Tag]
     #
     def create(**attributes)
-      _post("/tags/add", wrap(attributes)) { |json| Tag.new json }
+      _post("/tags/add", wrap(attributes)) { |json| Tag.new(**json) }
     end
 
     #
@@ -76,7 +76,7 @@ module MISP
     #
     def update(**attributes)
       payload = to_h.merge(attributes)
-      _post("/tags/edit/#{id}", wrap(payload)) { |json| Tag.new json }
+      _post("/tags/edit/#{id}", wrap(payload)) { |json| Tag.new(**json) }
     end
 
     #
@@ -98,7 +98,7 @@ module MISP
       end
 
       def create(**attributes)
-        new.create attributes
+        new.create(**attributes)
       end
 
       def delete(id)
@@ -106,7 +106,7 @@ module MISP
       end
 
       def update(id, **attributes)
-        Tag.new(id: id).update attributes
+        Tag.new(id: id).update(**attributes)
       end
     end
   end

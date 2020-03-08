@@ -48,7 +48,7 @@ module MISP
     attr_reader :caching_enabled
 
     def initialize(**attributes)
-      attributes = normalize_attributes(attributes)
+      attributes = normalize_attributes(**attributes)
 
       @id = attributes.dig(:id)
       @name = attributes.dig(:name) || "feed name"
@@ -114,7 +114,7 @@ module MISP
     def list
       _get("/feeds/index") do |feeds|
         feeds.map do |feed|
-          Feed.new feed
+          Feed.new(**feed)
         end
       end
     end

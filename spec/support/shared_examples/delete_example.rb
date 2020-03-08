@@ -4,7 +4,7 @@ RSpec.shared_examples "delete example" do
   let(:subject) { described_class }
 
   describe "#delete" do
-    let(:new_one) { subject.create(attributes) }
+    let(:new_one) { subject.create(**attributes) }
 
     it do
       res = new_one.delete
@@ -13,7 +13,7 @@ RSpec.shared_examples "delete example" do
   end
 
   describe ".delete" do
-    let(:new_one) { subject.create(attributes) }
+    let(:new_one) { subject.create(**attributes) }
 
     it do
       res = subject.delete(new_one.id)
