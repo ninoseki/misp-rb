@@ -56,7 +56,7 @@ module MISP
     def list
       _get("/galaxies/") do |galaxies|
         galaxies.map do |galaxy|
-          Galaxy.new **galaxy
+          Galaxy.new(**galaxy)
         end
       end
     end
@@ -67,7 +67,7 @@ module MISP
     # @return [MISP::Galaxy]
     #
     def get
-      _get("/galaxies/view/#{id}") { |galaxy| Galaxy.new **galaxy }
+      _get("/galaxies/view/#{id}") { |galaxy| Galaxy.new(**galaxy) }
     end
 
     class << self
