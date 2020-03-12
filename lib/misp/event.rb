@@ -204,7 +204,7 @@ module MISP
     # @return [MISP::Event]
     #
     def add_attribute(attribute)
-      attribute = Attribute.new(attribute) unless attribute.is_a?(Attribute)
+      attribute = Attribute.new(**attribute) unless attribute.is_a?(Attribute)
       attributes << attribute
       self
     end
@@ -215,7 +215,7 @@ module MISP
     # @return [MISP::Event]
     #
     def add_tag(tag)
-      tag = Tag.new(tag) unless tag.is_a?(MISP::Tag)
+      tag = Tag.new(**tag) unless tag.is_a?(MISP::Tag)
       tags << tag
       self
     end

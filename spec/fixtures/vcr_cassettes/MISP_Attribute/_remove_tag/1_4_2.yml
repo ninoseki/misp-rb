@@ -23,9 +23,9 @@ http_interactions:
       Server:
       - Apache/2.4.29 (Ubuntu)
       Set-Cookie:
-      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=dcqp3m16gsmtn475431q5ikmcu; expires=Thu,
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=i28umi25cs078cl6mu6vfenh0s; expires=Thu,
         12-Mar-2020 01:14:05 GMT; Max-Age=3600; path=/; HttpOnly
-      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=dcqp3m16gsmtn475431q5ikmcu; expires=Thu,
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=i28umi25cs078cl6mu6vfenh0s; expires=Thu,
         12-Mar-2020 01:14:05 GMT; Max-Age=3600; path=/; HttpOnly
       Content-Length:
       - '1094'
@@ -36,14 +36,14 @@ http_interactions:
       string: |-
         {
             "Event": {
-                "id": "758",
+                "id": "759",
                 "orgc_id": "1",
                 "org_id": "1",
                 "date": "2020-03-12",
                 "threat_level_id": "4",
                 "info": "test",
                 "published": false,
-                "uuid": "5e697ecd-6eb8-4dfe-9b44-05720a00020f",
+                "uuid": "5e697ecd-7c28-47ee-84e0-76110a00020f",
                 "attribute_count": "0",
                 "analysis": "0",
                 "timestamp": "1583972045",
@@ -78,7 +78,7 @@ http_interactions:
   recorded_at: Thu, 12 Mar 2020 00:14:07 GMT
 - request:
     method: post
-    uri: "<API_ENDPOINT>/attributes/add/758"
+    uri: "<API_ENDPOINT>/attributes/add/759"
     body:
       encoding: UTF-8
       string: '{"Attribute":{"type":"ip-dst","value":"8.8.8.8","SharingGroup":[],"ShadowAttribute":[],"Tag":[]}}'
@@ -99,10 +99,10 @@ http_interactions:
       Server:
       - Apache/2.4.29 (Ubuntu)
       Set-Cookie:
-      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=p06ru8mbi3s544kq9ik8cekc58; expires=Thu,
-        12-Mar-2020 01:14:05 GMT; Max-Age=3600; path=/; HttpOnly
-      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=p06ru8mbi3s544kq9ik8cekc58; expires=Thu,
-        12-Mar-2020 01:14:05 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=v50opusr3s1vu1kikdncfs9nft; expires=Thu,
+        12-Mar-2020 01:14:06 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=v50opusr3s1vu1kikdncfs9nft; expires=Thu,
+        12-Mar-2020 01:14:06 GMT; Max-Age=3600; path=/; HttpOnly
       Content-Length:
       - '568'
       Content-Type:
@@ -112,8 +112,8 @@ http_interactions:
       string: |-
         {
             "Attribute": {
-                "id": "2969",
-                "event_id": "758",
+                "id": "2970",
+                "event_id": "759",
                 "object_id": "0",
                 "object_relation": null,
                 "category": "Network activity",
@@ -121,8 +121,8 @@ http_interactions:
                 "value1": "8.8.8.8",
                 "value2": "",
                 "to_ids": true,
-                "uuid": "5e697ecd-2484-489b-9673-05710a00020f",
-                "timestamp": "1583972045",
+                "uuid": "5e697ece-2fc0-4d09-baa3-760f0a00020f",
+                "timestamp": "1583972046",
                 "distribution": "5",
                 "sharing_group_id": "0",
                 "comment": "",
@@ -153,14 +153,14 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 12 Mar 2020 00:14:05 GMT
+      - Thu, 12 Mar 2020 00:14:06 GMT
       Server:
       - Apache/2.4.29 (Ubuntu)
       Set-Cookie:
-      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=lgd17m7u49q570pcj216h8655f; expires=Thu,
-        12-Mar-2020 01:14:05 GMT; Max-Age=3600; path=/; HttpOnly
-      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=lgd17m7u49q570pcj216h8655f; expires=Thu,
-        12-Mar-2020 01:14:05 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=1uph0j4nl3d75gcp5dpvg370tk; expires=Thu,
+        12-Mar-2020 01:14:06 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=1uph0j4nl3d75gcp5dpvg370tk; expires=Thu,
+        12-Mar-2020 01:14:06 GMT; Max-Age=3600; path=/; HttpOnly
       Content-Length:
       - '232'
       Content-Type:
@@ -187,7 +187,7 @@ http_interactions:
     uri: "<API_ENDPOINT>/tags/attachTagToObject"
     body:
       encoding: UTF-8
-      string: '{"uuid":"5e697ecd-2484-489b-9673-05710a00020f","tag":"test tag"}'
+      string: '{"uuid":"5e697ece-2fc0-4d09-baa3-760f0a00020f","tag":"test tag"}'
     headers:
       Content-Type:
       - application/json
@@ -201,14 +201,14 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 12 Mar 2020 00:14:05 GMT
+      - Thu, 12 Mar 2020 00:14:06 GMT
       Server:
       - Apache/2.4.29 (Ubuntu)
       Set-Cookie:
-      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=930pd9gk9su6c9h4t0eqrc63vv; expires=Thu,
-        12-Mar-2020 01:14:05 GMT; Max-Age=3600; path=/; HttpOnly
-      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=930pd9gk9su6c9h4t0eqrc63vv; expires=Thu,
-        12-Mar-2020 01:14:05 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=l110i5b5tjqr7r9qhatgkgr93c; expires=Thu,
+        12-Mar-2020 01:14:06 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=l110i5b5tjqr7r9qhatgkgr93c; expires=Thu,
+        12-Mar-2020 01:14:06 GMT; Max-Age=3600; path=/; HttpOnly
       Content-Length:
       - '191'
       Content-Type:
@@ -217,8 +217,8 @@ http_interactions:
       encoding: UTF-8
       string: |-
         {
-            "name": "Tag test tag(4) successfully attached to Attribute(2969).",
-            "message": "Tag test tag(4) successfully attached to Attribute(2969).",
+            "name": "Tag test tag(4) successfully attached to Attribute(2970).",
+            "message": "Tag test tag(4) successfully attached to Attribute(2970).",
             "url": "\/tags\/attachTagToObject"
         }
     http_version: null
@@ -228,7 +228,7 @@ http_interactions:
     uri: "<API_ENDPOINT>/tags/removeTagFromObject"
     body:
       encoding: UTF-8
-      string: '{"uuid":"5e697ecd-2484-489b-9673-05710a00020f","tag":"test tag"}'
+      string: '{"uuid":"5e697ece-2fc0-4d09-baa3-760f0a00020f","tag":"test tag"}'
     headers:
       Content-Type:
       - application/json
@@ -242,14 +242,14 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 12 Mar 2020 00:14:05 GMT
+      - Thu, 12 Mar 2020 00:14:06 GMT
       Server:
       - Apache/2.4.29 (Ubuntu)
       Set-Cookie:
-      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=v9vvvol9n2lc59slufna77akst; expires=Thu,
-        12-Mar-2020 01:14:05 GMT; Max-Age=3600; path=/; HttpOnly
-      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=v9vvvol9n2lc59slufna77akst; expires=Thu,
-        12-Mar-2020 01:14:05 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=5rloo29dqjb8gqvqabluoihs17; expires=Thu,
+        12-Mar-2020 01:14:06 GMT; Max-Age=3600; path=/; HttpOnly
+      - MISP-5d84de75-5a54-4be3-aafc-19ac21b86aea=5rloo29dqjb8gqvqabluoihs17; expires=Thu,
+        12-Mar-2020 01:14:06 GMT; Max-Age=3600; path=/; HttpOnly
       Content-Length:
       - '195'
       Content-Type:
@@ -258,8 +258,8 @@ http_interactions:
       encoding: UTF-8
       string: |-
         {
-            "name": "Tag test tag(4) successfully removed from Attribute(2969).",
-            "message": "Tag test tag(4) successfully removed from Attribute(2969).",
+            "name": "Tag test tag(4) successfully removed from Attribute(2970).",
+            "message": "Tag test tag(4) successfully removed from Attribute(2970).",
             "url": "\/tags\/removeTagFromObject"
         }
     http_version: null
