@@ -43,6 +43,11 @@ RSpec.describe MISP::Attribute, :vcr do
       attribute.add_tag tag
       expect(attribute.remove_tag(tag)).to be_a(Hash)
     end
+
+    it do
+      attribute.add_tag tag
+      expect(attribute.remove_tag(name: tag_name)).to be_a(Hash)
+    end
   end
 
   describe "#update" do

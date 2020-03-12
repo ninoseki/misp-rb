@@ -32,8 +32,16 @@ RSpec.describe MISP::Event, :vcr do
   describe "#add_attribute" do
     let(:event) { subject.create(**attributes) }
     let(:attribute) {
-      MISP::Attribute.new(value: "8.8.8.8", type: "ip-dst")
+      { value: "8.8.8.8", type: "ip-dst" }
     }
+
+    let(:attribute_object) {
+      MISP::Attribute.new(**attribute)
+    }
+
+    it do
+      expect(event.add_attribute(attribute_object)).to be_a(described_class)
+    end
 
     it do
       expect(event.add_attribute(attribute)).to be_a(described_class)
@@ -43,8 +51,16 @@ RSpec.describe MISP::Event, :vcr do
   describe "#add_tag" do
     let(:event) { subject.create(**attributes) }
     let(:tag) {
-      MISP::Tag.new(name: "test")
+      { name: "test" }
     }
+
+    let(:tag_object) {
+      MISP::Tag.new(**tag)
+    }
+
+    it do
+      expect(event.add_tag(tag_object)).to be_a(described_class)
+    end
 
     it do
       expect(event.add_tag(tag)).to be_a(described_class)

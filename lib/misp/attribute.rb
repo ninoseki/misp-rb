@@ -156,7 +156,7 @@ module MISP
     # @return [MISP::Tag]
     #
     def add_tag(tag)
-      tag = Tag.new(tag) unless tag.is_a?(MISP::Tag)
+      tag = Tag.new(**tag) unless tag.is_a?(MISP::Tag)
       payload = { uuid: uuid, tag: tag.name }
       _post("/tags/attachTagToObject", payload) { |json| Tag.new(**json) }
     end
@@ -169,7 +169,7 @@ module MISP
     # @return [Hash]
     #
     def remove_tag(tag)
-      tag = Tag.new(tag) unless tag.is_a?(MISP::Tag)
+      tag = Tag.new(**tag) unless tag.is_a?(MISP::Tag)
       payload = { uuid: uuid, tag: tag.name }
       _post("/tags/removeTagFromObject", payload) { |json| json }
     end
