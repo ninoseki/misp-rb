@@ -12,9 +12,9 @@ module MISP
     def initialize(**attributes)
       attributes = normalize_attributes(**attributes)
 
-      @id = attributes.dig(:id)
-      @name = attributes.dig(:name)
-      @uuid = attributes.dig(:uuid)
+      @id = attributes[:id]
+      @name = attributes[:name]
+      @uuid = attributes[:uuid]
     end
 
     #

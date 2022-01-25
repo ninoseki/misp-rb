@@ -17,12 +17,12 @@ module MISP
     def initialize(**attributes)
       attributes = normalize_attributes(**attributes)
 
-      @id = attributes.dig(:id)
-      @sharing_group_id = attributes.dig(:sharing_group_id)
-      @org_id = attributes.dig(:org_id)
-      @extend = attributes.dig(:extend)
+      @id = attributes[:id]
+      @sharing_group_id = attributes[:sharing_group_id]
+      @org_id = attributes[:org_id]
+      @extend = attributes[:extend]
 
-      @organization = build_attribute(item: attributes.dig(:Organization), klass: Org)
+      @organization = build_attribute(item: attributes[:Organization], klass: Org)
     end
 
     #

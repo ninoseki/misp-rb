@@ -40,24 +40,24 @@ module MISP
     def initialize(**attributes)
       attributes = normalize_attributes(**attributes)
 
-      @id = attributes.dig(:id)
-      @name = attributes.dig(:name) || "default name"
-      @releasability = attributes.dig(:releasability) || "default sharability"
-      @description = attributes.dig(:description)
-      @uuid = attributes.dig(:uuid)
-      @organisation_uuid = attributes.dig(:organisation_uuid)
-      @org_id = attributes.dig(:org_id)
-      @sync_user_id = attributes.dig(:sync_user_id)
-      @active = attributes.dig(:active)
-      @created = attributes.dig(:created)
-      @modified = attributes.dig(:modified)
-      @local = attributes.dig(:local)
-      @roaming = attributes.dig(:roaming)
+      @id = attributes[:id]
+      @name = attributes[:name] || "default name"
+      @releasability = attributes[:releasability] || "default sharability"
+      @description = attributes[:description]
+      @uuid = attributes[:uuid]
+      @organisation_uuid = attributes[:organisation_uuid]
+      @org_id = attributes[:org_id]
+      @sync_user_id = attributes[:sync_user_id]
+      @active = attributes[:active]
+      @created = attributes[:created]
+      @modified = attributes[:modified]
+      @local = attributes[:local]
+      @roaming = attributes[:roaming]
 
-      @organisation = build_attribute(item: attributes.dig(:Organization), klass: Org)
+      @organisation = build_attribute(item: attributes[:Organization], klass: Org)
 
-      @sharing_group_orgs = build_plural_attribute(items: attributes.dig(:SharingGroupOrg), klass: SharingGroupOrg)
-      @sharing_group_servers = build_plural_attribute(items: attributes.dig(:SharingGroupServer), klass: SharingGroupServer)
+      @sharing_group_orgs = build_plural_attribute(items: attributes[:SharingGroupOrg], klass: SharingGroupOrg)
+      @sharing_group_servers = build_plural_attribute(items: attributes[:SharingGroupServer], klass: SharingGroupServer)
     end
 
     #
@@ -93,7 +93,7 @@ module MISP
     #
     def list
       _get("/sharing_groups/") do |res|
-        sharing_groups = res.dig(:response) || []
+        sharing_groups = res[:response] || []
         sharing_groups.map do |sharing_group|
           SharingGroup.new(**sharing_group)
         end

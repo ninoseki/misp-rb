@@ -21,14 +21,14 @@ module MISP
     def initialize(**attributes)
       attributes = normalize_attributes(**attributes)
 
-      @id = attributes.dig(:id)
-      @uuid = attributes.dig(:uuid)
-      @name = attributes.dig(:name)
-      @type = attributes.dig(:type)
-      @description = attributes.dig(:description)
-      @version = attributes.dig(:version)
+      @id = attributes[:id]
+      @uuid = attributes[:uuid]
+      @name = attributes[:name]
+      @type = attributes[:type]
+      @description = attributes[:description]
+      @version = attributes[:version]
 
-      @galaxy_clusters = build_plural_attribute(items: attributes.dig(:GalaxyCluster), klass: GalaxyCluster)
+      @galaxy_clusters = build_plural_attribute(items: attributes[:GalaxyCluster], klass: GalaxyCluster)
     end
 
     #

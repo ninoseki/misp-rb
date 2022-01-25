@@ -28,17 +28,17 @@ module MISP
     def initialize(**attributes)
       attributes = normalize_attributes(**attributes)
 
-      @id = attributes.dig(:id)
-      @uuid = attributes.dig(:uuid)
-      @type = attributes.dig(:type)
-      @value = attributes.dig(:value)
-      @tag_name = attributes.dig(:tag_name)
-      @description = attributes.dig(:description)
-      @galaxy_id = attributes.dig(:galaxy_id)
-      @source = attributes.dig(:source)
-      @authors = attributes.dig(:authors)
-      @tag_id = attributes.dig(:tag_id)
-      @meta = attributes.dig(:meta)
+      @id = attributes[:id]
+      @uuid = attributes[:uuid]
+      @type = attributes[:type]
+      @value = attributes[:value]
+      @tag_name = attributes[:tag_name]
+      @description = attributes[:description]
+      @galaxy_id = attributes[:galaxy_id]
+      @source = attributes[:source]
+      @authors = attributes[:authors]
+      @tag_id = attributes[:tag_id]
+      @meta = attributes[:meta]
     end
 
     #
