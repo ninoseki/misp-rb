@@ -50,28 +50,28 @@ module MISP
     def initialize(**attributes)
       attributes = normalize_attributes(**attributes)
 
-      @id = attributes.dig(:id)
-      @name = attributes.dig(:name) || "feed name"
-      @provider = attributes.dig(:provider) || "my provider"
-      @url = attributes.dig(:url) || "http://example.com"
-      @rules = attributes.dig(:rules) || ""
-      @enabled = attributes.dig(:enabled)
-      @distribution = attributes.dig(:distribution)
-      @sharing_group_id = attributes.dig(:sharing_group_id)
-      @tag_id = attributes.dig(:tag_id) || "0"
-      @default = attributes.dig(:default) || true
-      @source_format = attributes.dig(:source_format) || "misp"
-      @fixed_event = attributes.dig(:fixed_event) || true
-      @delta_merge = attributes.dig(:delta_merge) || false
-      @event_id = attributes.dig(:event_id) || "0"
-      @publish = attributes.dig(:publish) || true
-      @override_ids = attributes.dig(:override_ids) || false
-      @settings = attributes.dig(:settings) || ""
-      @input_source = attributes.dig(:input_source) || "network"
-      @delete_local_file = attributes.dig(:delete_local_file) || false
-      @lookup_visible = attributes.dig(:lookup_visible) || true
-      @headers = attributes.dig(:headers) || ""
-      @caching_enabled = attributes.dig(:caching_enabled) || true
+      @id = attributes[:id]
+      @name = attributes[:name] || "feed name"
+      @provider = attributes[:provider] || "my provider"
+      @url = attributes[:url] || "http://example.com"
+      @rules = attributes[:rules] || ""
+      @enabled = attributes[:enabled]
+      @distribution = attributes[:distribution]
+      @sharing_group_id = attributes[:sharing_group_id]
+      @tag_id = attributes[:tag_id] || "0"
+      @default = attributes[:default] || true
+      @source_format = attributes[:source_format] || "misp"
+      @fixed_event = attributes[:fixed_event] || true
+      @delta_merge = attributes[:delta_merge] || false
+      @event_id = attributes[:event_id] || "0"
+      @publish = attributes[:publish] || true
+      @override_ids = attributes[:override_ids] || false
+      @settings = attributes[:settings] || ""
+      @input_source = attributes[:input_source] || "network"
+      @delete_local_file = attributes[:delete_local_file] || false
+      @lookup_visible = attributes[:lookup_visible] || true
+      @headers = attributes[:headers] || ""
+      @caching_enabled = attributes[:caching_enabled] || true
     end
 
     #

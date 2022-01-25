@@ -60,34 +60,34 @@ module MISP
     def initialize(**attrs)
       attrs = normalize_attributes(**attrs)
 
-      @id = attrs.dig(:id)
-      @orgc_id = attrs.dig(:orgc_id)
-      @org_id = attrs.dig(:org_id)
-      @date = attrs.dig(:date)
-      @threat_level_id = attrs.dig(:threat_level_id)
-      @info = attrs.dig(:info)
-      @published = attrs.dig(:published) || false
-      @uuid = attrs.dig(:uuid)
-      @attribute_count = attrs.dig(:attribute_count)
-      @analysis = attrs.dig(:analysis)
-      @timestamp = attrs.dig(:timestamp)
-      @distribution = attrs.dig(:distribution)
-      @proposal_email_lock = attrs.dig(:proposal_email_lock)
-      @locked = attrs.dig(:locked) || false
-      @publish_timestamp = attrs.dig(:publish_timestamp)
-      @sharing_group_id = attrs.dig(:sharing_group_id)
-      @disable_correlation = attrs.dig(:disable_correlation)
-      @event_creator_email = attrs.dig(:event_creator_email)
+      @id = attrs[:id]
+      @orgc_id = attrs[:orgc_id]
+      @org_id = attrs[:org_id]
+      @date = attrs[:date]
+      @threat_level_id = attrs[:threat_level_id]
+      @info = attrs[:info]
+      @published = attrs[:published] || false
+      @uuid = attrs[:uuid]
+      @attribute_count = attrs[:attribute_count]
+      @analysis = attrs[:analysis]
+      @timestamp = attrs[:timestamp]
+      @distribution = attrs[:distribution]
+      @proposal_email_lock = attrs[:proposal_email_lock]
+      @locked = attrs[:locked] || false
+      @publish_timestamp = attrs[:publish_timestamp]
+      @sharing_group_id = attrs[:sharing_group_id]
+      @disable_correlation = attrs[:disable_correlation]
+      @event_creator_email = attrs[:event_creator_email]
 
-      @org = build_attribute(item: attrs.dig(:Org), klass: Org)
-      @orgc = build_attribute(item: attrs.dig(:Orgc), klass: Orgc)
+      @org = build_attribute(item: attrs[:Org], klass: Org)
+      @orgc = build_attribute(item: attrs[:Orgc], klass: Orgc)
 
-      @sharing_groups = build_plural_attribute(items: attrs.dig(:SharingGroup), klass: SharingGroup)
-      @attributes = build_plural_attribute(items: attrs.dig(:Attribute), klass: Attribute)
-      @shadow_attributes = build_plural_attribute(items: attrs.dig(:ShadowAttribute), klass: Attribute )
-      @related_events = build_plural_attribute(items: attrs.dig(:RelatedEvent), klass: Attribute)
-      @galaxies = build_plural_attribute(items: attrs.dig(:Galaxy), klass: Galaxy)
-      @tags = build_plural_attribute(items: attrs.dig(:Tag), klass: Tag)
+      @sharing_groups = build_plural_attribute(items: attrs[:SharingGroup], klass: SharingGroup)
+      @attributes = build_plural_attribute(items: attrs[:Attribute], klass: Attribute)
+      @shadow_attributes = build_plural_attribute(items: attrs[:ShadowAttribute], klass: Attribute )
+      @related_events = build_plural_attribute(items: attrs[:RelatedEvent], klass: Attribute)
+      @galaxies = build_plural_attribute(items: attrs[:Galaxy], klass: Galaxy)
+      @tags = build_plural_attribute(items: attrs[:Tag], klass: Tag)
     end
 
     #
@@ -193,7 +193,7 @@ module MISP
       }
 
       _post("/events/restSearch", base.merge(params)) do |json|
-        events = json.dig(:response) || []
+        events = json[:response] || []
         events.map { |event| Event.new(**event) }
       end
     end

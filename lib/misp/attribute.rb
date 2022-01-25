@@ -41,24 +41,24 @@ module MISP
     def initialize(**attributes)
       attributes = normalize_attributes(**attributes)
 
-      @id = attributes.dig(:id)
-      @type = attributes.dig(:type)
-      @category = attributes.dig(:category)
-      @to_ids = attributes.dig(:to_ids)
-      @uuid = attributes.dig(:uuid)
-      @event_id = attributes.dig(:event_id)
-      @distribution = attributes.dig(:distribution)
-      @timestamp = attributes.dig(:timestamp)
-      @comment = attributes.dig(:comment)
-      @sharing_group_id = attributes.dig(:sharing_group_id)
-      @deleted = attributes.dig(:deleted)
-      @disable_correlation = attributes.dig(:disable_correlation)
-      @value = attributes.dig(:value)
-      @data = attributes.dig(:data)
+      @id = attributes[:id]
+      @type = attributes[:type]
+      @category = attributes[:category]
+      @to_ids = attributes[:to_ids]
+      @uuid = attributes[:uuid]
+      @event_id = attributes[:event_id]
+      @distribution = attributes[:distribution]
+      @timestamp = attributes[:timestamp]
+      @comment = attributes[:comment]
+      @sharing_group_id = attributes[:sharing_group_id]
+      @deleted = attributes[:deleted]
+      @disable_correlation = attributes[:disable_correlation]
+      @value = attributes[:value]
+      @data = attributes[:data]
 
-      @sharing_groups = build_plural_attribute(items: attributes.dig(:SharingGroup), klass: SharingGroup)
-      @shadow_attributes = build_plural_attribute(items: attributes.dig(:ShadowAttribute), klass: Attribute )
-      @tags = build_plural_attribute(items: attributes.dig(:Tag), klass: Tag)
+      @sharing_groups = build_plural_attribute(items: attributes[:SharingGroup], klass: SharingGroup)
+      @shadow_attributes = build_plural_attribute(items: attributes[:ShadowAttribute], klass: Attribute )
+      @tags = build_plural_attribute(items: attributes[:Tag], klass: Tag)
     end
 
     #

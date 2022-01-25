@@ -66,7 +66,7 @@ module MISP
     def normalize_attributes(**attributes)
       klass = class_name.to_sym
 
-      attributes.key?(klass) ? attributes.dig(klass) : attributes
+      attributes.key?(klass) ? attributes[klass] : attributes
     end
 
     def wrap(params)
@@ -149,9 +149,9 @@ module MISP
 
     def default_headers
       {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "Authorization": api_key
+        'Content-Type': "application/json",
+        Accept: "application/json",
+        Authorization: api_key
       }
     end
 

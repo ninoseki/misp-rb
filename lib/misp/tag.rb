@@ -16,11 +16,11 @@ module MISP
     def initialize(**attributes)
       attributes = normalize_attributes(**attributes)
 
-      @id = attributes.dig(:id)
-      @name = attributes.dig(:name)
-      @colour = attributes.dig(:colour)
-      @exportable = attributes.dig(:exportable)
-      @hide_tag = attributes.dig(:hide_tag)
+      @id = attributes[:id]
+      @name = attributes[:name]
+      @colour = attributes[:colour]
+      @exportable = attributes[:exportable]
+      @hide_tag = attributes[:hide_tag]
     end
 
     #

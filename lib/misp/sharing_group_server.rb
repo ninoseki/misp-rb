@@ -17,12 +17,12 @@ module MISP
     def initialize(**attributes)
       attributes = normalize_attributes(**attributes)
 
-      @id = attributes.dig(:id)
-      @sharing_group_id = attributes.dig(:sharing_group_id)
-      @server_id = attributes.dig(:server_id)
-      @all_orgs = attributes.dig(:all_orgs)
+      @id = attributes[:id]
+      @sharing_group_id = attributes[:sharing_group_id]
+      @server_id = attributes[:server_id]
+      @all_orgs = attributes[:all_orgs]
 
-      @servers = build_plural_attribute(items: attributes.dig(:Server), klass: Server)
+      @servers = build_plural_attribute(items: attributes[:Server], klass: Server)
     end
 
     #
