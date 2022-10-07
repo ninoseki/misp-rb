@@ -3,12 +3,45 @@
 require "bundler/setup"
 
 require "simplecov"
-require "coveralls"
-SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-SimpleCov.start do
-  add_filter "/spec"
+
+class InceptionFormatter
+  def format(result)
+    Coveralls::SimpleCov::Formatter.new.format(result)
+  end
 end
-Coveralls.wear!
+
+def setup_formatter
+  if ENV["GITHUB_ACTIONS"]
+    require "simplecov-lcov"
+
+    SimpleCov::Formatter::LcovFormatter.config do |c|
+      c.report_with_single_file = true
+      c.single_report_path = "coverage/lcov.info"
+    end
+  end
+
+  SimpleCov.formatter =
+    if ENV["CI"] || ENV["COVERALLS_REPO_TOKEN"]
+      if ENV["GITHUB_ACTIONS"]
+        SimpleCov::Formatter::MultiFormatter.new([InceptionFormatter, SimpleCov::Formatter::LcovFormatter])
+      else
+        InceptionFormatter
+      end
+    else
+      SimpleCov::Formatter::HTMLFormatter
+    end
+end
+
+setup_formatter
+
+SimpleCov.start do
+  add_filter do |source_file|
+    source_file.filename.include?("spec") && !source_file.filename.include?("fixture")
+  end
+  add_filter %r{/.bundle/}
+end
+
+require "coveralls"
 
 require "vcr"
 
@@ -41,6 +74,6 @@ VCR.configure do |config|
   config.hook_into :webmock
   config.ignore_localhost = false
 
-  config.filter_sensitive_data("<API_KEY>") { ENV["MISP_API_KEY"] }
-  config.filter_sensitive_data("<API_ENDPOINT>") { ENV["MISP_API_ENDPOINT"] }
+  config.filter_sensitive_data("<API_KEY>") { ENV.fetch("MISP_API_KEY", nil) }
+  config.filter_sensitive_data("<API_ENDPOINT>") { ENV.fetch("MISP_API_ENDPOINT", nil) }
 end
