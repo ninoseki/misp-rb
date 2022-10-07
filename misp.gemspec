@@ -25,9 +25,11 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 2.3"
-  spec.add_development_dependency "coveralls_reborn", "~> 0.23"
+  spec.add_development_dependency "coveralls_reborn", "~> 0.25"
   spec.add_development_dependency "rake", "~> 13.0"
-  spec.add_development_dependency "rspec", "~> 3.10"
-  spec.add_development_dependency "vcr", "~> 6.0"
-  spec.add_development_dependency "webmock", "~> 3.14"
+  spec.add_development_dependency "rspec", "~> 3.11"
+  spec.add_development_dependency "vcr", "~> 6.1"
+  spec.add_development_dependency "webmock", "~> 3.18"
+
+  spec.metadata['rubygems_mfa_required'] = 'true'
 end
